@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="mt-20 mb-3 font-poppins">
+    <footer className="mt-20 mb-3 font-outfit">
       <h3 className="text-center font-medium text-base">
         Made with 🤍 by <a href="https://github.com/fahadshahbaz"> Fahad.</a>
       </h3>

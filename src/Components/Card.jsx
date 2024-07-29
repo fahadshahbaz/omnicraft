@@ -1,10 +1,10 @@
 const Card = (props) => {
   return (
     <>
-      <div className="card flex flex-col w-[350px] h-[450px] overflow-hidden transition duration-300 rounded-2xl border-4 border-solid border-[#4d4d4da2] font-poppins">
+      <div className="card flex flex-col w-[350px] h-[450px] overflow-hidden transition duration-300 rounded-2xl border-4 border-solid border-[#4d4d4da2] font-outfit">
         <div className="upper-part p-6 bg-[#1A1A1A] rounded-b-[20px] basis-[65%]">
           <img
-            className="mx-auto w-[90%] h-[150px] bg-center bg-cover mt-8 rounded-xl"
+            className="mx-auto w-[90%] h-[150px] object-cover mt-8 rounded-xl"
             src={props.img}
           />
         </div>
