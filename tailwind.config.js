@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         outfit: ["Outfit", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
     },
   },

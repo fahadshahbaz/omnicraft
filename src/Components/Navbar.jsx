@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <header className="w-full font-outfit">
+    <header className="w-full font-roboto">
       <nav className="flex justify-between items-center p-5 px-4 sm:px-12">
         <h2 className="text-3xl sm:text-4xl font-bold cursor-pointer">
           OmniCraft<span className="text-5xl text-gray-500">.</span>
