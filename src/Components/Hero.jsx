@@ -12,7 +12,7 @@ const Hero = () => {
           Discover top-tier tools and resources designed to streamline your
           process and elevate your creative and technical skills.
         </p>
-        <a className="bg-white px-8 py-2 rounded-lg text-black" href="#">
+        <a href="#" className="bg-white text-lg px-8 py-2 rounded-lg text-black hover:scale-105 transition-all ease-linear duration-150">
           Explore Now
         </a>
       </div>
