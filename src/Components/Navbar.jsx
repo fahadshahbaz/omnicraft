@@ -1,14 +1,14 @@
 const Navbar = () => {
   return (
     <header className="w-full font-roboto">
-      <nav className="flex justify-between items-center p-5 px-4 sm:px-16">
-        <h2 className="text-3xl sm:text-4xl font-bold cursor-pointer">
-          OmniCraft<span className="text-5xl text-gray-500">.</span>
-        </h2>
+      <nav className="flex justify-between items-center p-3 px-4 sm:px-12">
+        <a href="#home" className="text-3xl sm:text-4xl font-bold cursor-pointer">
+         <img src="/Logo.jpeg" alt="Logo" className="size-8 mb-2 mr-1 inline-block"/>mniCraft<span className="text-5xl text-gray-500">.</span>
+        </a>
         <a
           href="https://github.com/fahadshahbaz"
           target="_blank"
-          className="text-black bg-white font-medium rounded-lg text-base px-3 pl-4 sm:px-5 py-2.5 sm:py-3 text-center inline-flex items-center me-2 hover:scale-105 transition-all ease-linear duration-100"
+          className="text-black bg-white font-medium rounded-lg text-base px-3 pl-4 sm:px-5 py-2.5 text-center inline-flex items-center me-2 hover:scale-105 transition-all ease-linear duration-100"
         >
           <svg
             className="w-4 h-4 me-1"
