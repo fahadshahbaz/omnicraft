@@ -96,3 +96,8 @@ img{
 img:hover {
     box-shadow: 3px 10px 63px 0px rgba(204, 204, 204, 0.30);
 } */
+
+.heading-main{
+  font-size: clamp(2rem, 5vw, 5.5rem);
+  line-height: 100%;
+}
