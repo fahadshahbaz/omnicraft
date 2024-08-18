@@ -11,7 +11,7 @@ const SearchModal = ({ isOpen, searchQuery, setSearchQuery, searchInputRef, onCl
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black bg-opacity-50">
-      <div className="w-[90%] sm:w-[400px] bg-[#181818] rounded-lg p-4 shadow-lg">
+      <div className="w-[90%] sm:w-[400px] bg-[#252525] rounded-lg p-4 shadow-lg">
         <input
           type="text"
           placeholder="Search for resources..."
@@ -23,7 +23,7 @@ const SearchModal = ({ isOpen, searchQuery, setSearchQuery, searchInputRef, onCl
         />
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-400 hover:text-white"
+          className="absolute top-3 right-3 bg-[#252525] px-4 py-3 rounded-full text-gray-100 hover:text-white"
         >
           ✕
         </button>
