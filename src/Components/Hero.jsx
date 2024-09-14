@@ -9,7 +9,7 @@ const isMac = () => {
 const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
   return (
     <div className="w-full mx-auto text-center flex justify-center items-center flex-col py-28 lg:py-32 font-montserrat">
-      <div className="w-[90%] sm:w-[70%] mx-auto">
+      <div className="w-[90%] sm:w-[60%] mx-auto">
         {/* <h3 className="text-3xl sm:text-5xl 2xl:text-6xl font-bold"> */}
         <h3 className="heading-main font-bold">
           Frontend Inspiration resources from a <br />

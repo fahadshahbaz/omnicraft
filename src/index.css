@@ -98,7 +98,7 @@ img:hover {
 } */
 
 .heading-main{
-  font-size: clamp(2rem, 4.7vw, 5.3rem);
+  font-size: clamp(2rem, 4.2vw, 5.3rem);
   line-height: 100%;
 }
 .para-text{
