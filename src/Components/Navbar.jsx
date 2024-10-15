@@ -3,7 +3,7 @@ const Navbar = () => {
     <header className="w-full font-roboto">
       <nav className="flex justify-between items-center p-3 px-4 sm:px-12">
         <a href="#home" className="text-3xl sm:text-4xl font-bold cursor-pointer">
-         <img src="/Logo.jpeg" alt="Logo" className="size-8 mb-2 mr-1 inline-block"/>mniCraft<span className="text-5xl text-gray-500">.</span>
+         <img src="/Logo.jpeg" alt="Logo" className="size-8 mb-2 mr-1 inline-block"/> OmniCraft<span className="text-5xl text-gray-500">.</span>
         </a>
         <a
           href="https://github.com/fahadshahbaz"

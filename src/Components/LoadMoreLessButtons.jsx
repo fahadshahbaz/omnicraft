@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoadMoreLessButtons = ({ visibleCards, filteredData, loadMoreCards, loadLessCards }) => {
     return (
-        <div className="flex justify-center my-4">
+        <div className="flex justify-center my-6">
             {visibleCards < filteredData.length ? (
                 <button
                     onClick={loadMoreCards}
