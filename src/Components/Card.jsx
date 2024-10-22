@@ -5,13 +5,14 @@ const Card = ({ img, label, para, link }) => {
         <div className="upper-part p-6 bg-[#1A1A1A] basis-[65%]">
           <img
             className="mx-auto w-[90%] h-[150px] object-cover mt-8 rounded-xl"
-            src={img}
+            src={img} loading="lazy"
           />
         </div>
         <div className="p-5 basis-[35%]">
           <h2 className="text-white text-2xl p-2 font-semibold">{label}</h2>
           <p className="text-zinc-500 text-base pb-[15px] pl-[10px]">{para}</p>
-          <a href={link} target="_blank" class="button">Link
+          <a href={link} target="_blank" class="button">
+            Link
             <div class="arrow">›</div>
           </a>
         </div>
@@ -22,8 +23,6 @@ const Card = ({ img, label, para, link }) => {
 export default Card;
 
 // Above is perfect working card.
-
-
 
 // import React from "react";
 
