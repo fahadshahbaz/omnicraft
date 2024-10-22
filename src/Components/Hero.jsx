@@ -9,7 +9,7 @@ const isMac = () => {
 const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
   return (
     <div className="w-full mx-auto text-center flex justify-center items-center flex-col py-28 lg:py-32 font-montserrat">
-      <div className="w-[90%] sm:w-[60%] mx-auto">
+      <div className="sm:w-[65%] mx-auto">
         {/* <h3 className="text-3xl sm:text-5xl 2xl:text-6xl font-bold"> */}
         <h3 className="heading-main font-bold">
           Frontend Inspiration resources from a <br />
@@ -19,9 +19,11 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
         </h3>
       </div>
       {/* <p className="text-xs sm:text-base w-[80%] sm:w-[60%] lg:w-[35%] text-[#7F8080] pt-5"> */}
-      <p className="para-text w-[80%] sm:w-[60%] lg:w-[35%] text-[#7F8080] pt-5">
-        Discover top-tier tools and resources designed to streamline your
-        process and elevate your creative and technical skills.
+      <p className="para-text w-[75%] sm:w-[50%] lg:w-[35%] text-[#7F8080] pt-5">
+        {/* Discover top-tier tools and resources designed to streamline your
+        process and elevate your creative and technical skills. */}
+        Explore the best tools and resources to simplify your workflow and 
+        enhance both your creative and technical skills.
       </p>
       <SearchBar
         searchQuery={searchQuery}

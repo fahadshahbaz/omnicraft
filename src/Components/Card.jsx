@@ -1,7 +1,7 @@
 const Card = ({ img, label, para, link }) => {
   return (
     <>
-      <section className="card flex flex-col w-[360px] h-[450px] overflow-hidden transition duration-300 rounded-xl border-2 border-solid border-[#4d4d4da2] font-roboto">
+      <section className="card flex flex-col w-[345px] h-[450px] overflow-hidden transition duration-300 rounded-xl border-2 border-solid border-[#4d4d4da2] font-roboto">
         <div className="upper-part p-6 bg-[#1A1A1A] basis-[65%]">
           <img
             className="mx-auto w-[90%] h-[150px] object-cover mt-8 rounded-xl"
@@ -11,7 +11,7 @@ const Card = ({ img, label, para, link }) => {
         <div className="p-5 basis-[35%]">
           <h2 className="text-white text-2xl p-2 font-semibold">{label}</h2>
           <p className="text-zinc-500 text-base pb-[15px] pl-[10px]">{para}</p>
-          <a href={link} target="_blank" class="button">
+          <a href={link} target="_blank" class="button ml-[9px]">
             Link
             <div class="arrow">›</div>
           </a>
