@@ -20,8 +20,6 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
       </div>
       {/* <p className="text-xs sm:text-base w-[80%] sm:w-[60%] lg:w-[35%] text-[#7F8080] pt-5"> */}
       <p className="para-text w-[75%] sm:w-[50%] lg:w-[35%] text-[#7F8080] pt-5">
-        {/* Discover top-tier tools and resources designed to streamline your
-        process and elevate your creative and technical skills. */}
         Explore the best tools and resources to simplify your workflow and 
         enhance both your creative and technical skills.
       </p>

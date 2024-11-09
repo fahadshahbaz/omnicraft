@@ -1,5 +1,3 @@
-import React from "react";
-
 const SearchBar = ({ searchQuery, setSearchQuery, searchInputRef }) => {
   return (
     <>
@@ -9,7 +7,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, searchInputRef }) => {
           placeholder="Search for resources"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full border-none bg-transparent px-2 sm:px-6 placeholder:text-gray-500 text-white outline-none focus:outline-none"
+          className="w-full border-none bg-transparent px-2 sm:px-6 placeholder:text-zinc-700 text-white outline-none focus:outline-none"
           name="search"
           ref={searchInputRef} // Attach the ref to the input element
         />
