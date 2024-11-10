@@ -10,33 +10,28 @@ const Footer = () => {
 
 export default Footer;
 
-// import React from "react";
-// import { linkedin, github, twitter } from "../assets/";
+// import { FaLinkedinIn } from "react-icons/fa";
+// import { FaXTwitter } from "react-icons/fa6";
+// import { TbBrandGithubFilled } from "react-icons/tb";
 
 // const Footer = () => {
 //   return (
-//     <footer className="w-full  border-t-2 border-[#2b2b2b] mt-32 ">
-//       <div className="max-w-screen-xl mx-auto flex justify-around items-center p-6">
-//         <div>
-//           <div>logo = </div>
-//           <div>logo = </div>
-//           <div>email = </div>
+//     <footer className="w-full mt-32 p-6">
+//       <div className="max-w-screen-xl space-y-16 mx-auto p-12 px-24 bg-neutral-900 rounded-lg">
+//         {/* Upper part of footer */}
+//         <div className="flex justify-between items-center">
+//           <h2 className="text-5xl">Design. Create. Elevate.</h2>
+//           <button className="border border-white px-4 py-2 rounded-lg">Contact</button>
 //         </div>
-//         <div className="space-y-4">
-//           <h1>About the project</h1>
-//           <p className="w-72">
-//           OmniCraft is your go-to resource for developers and designers. Explore a collection of inspiring websites, assets, and UI library components. Elevate your projects with curated tools and inspiration!
-//           </p>
-//           <div className="flex items-center justify-start gap-6">
-//             <div className="bg-gray-800 p-2 rounded-sm">
-//             <img src={linkedin} alt="linkedin" className="size-6 filter invert"/>
-//             </div>
-//             <div className="bg-gray-800 p-2 rounded-sm">
-//             <img src={github} alt="linkedin" className="size-6 filter invert"/>
-//             </div>
-//             <div className="bg-gray-800 p-2 rounded-sm">
-//             <img src={twitter} alt="linkedin" className="size-6 filter invert"/>
-//             </div>
+//         {/* Lower part of footer */}
+//         <div className="w-full h-[2px] bg-zinc-800"></div>
+//         <div className="flex justify-between items-center space-y-4">
+//           <p className="text-2xl">Omnicraft - <span className="text-zinc-500 text-lg">Made by Fahad.</span></p>
+//           <div className="flex items-center space-x-4 justify-center">
+//             <p className="text-zinc-500">fahadshahbaz166@gmail.com</p>
+//           <FaLinkedinIn />
+//           <FaXTwitter />
+//           <TbBrandGithubFilled />
 //           </div>
 //         </div>
 //       </div>

@@ -5,7 +5,9 @@ const Card = ({ img, label, para, link }) => {
         <div className="upper-part p-6 bg-[#1A1A1A] basis-[65%]">
           <img
             className="mx-auto w-[90%] h-[150px] object-cover mt-8 rounded-xl"
-            src={img} loading="lazy" alt="resource image"
+            src={img}
+            loading="lazy"
+            alt="resource image"
           />
         </div>
         <div className="p-5 basis-[35%]">
