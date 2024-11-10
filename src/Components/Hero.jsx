@@ -3,8 +3,18 @@ import SearchBar from "./SearchBar.jsx";
 
 // Helper function to detect if the user is on a Mac
 const isMac = () => {
-  return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+  // Primary modern method using userAgentData (not supported in all browsers yet)
+  if (navigator.userAgentData) {
+    return navigator.userAgentData.platform === "macOS";
+  }
+  
+  // Fallback method using userAgent
+  return /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
 };
+
+// const isMac = () => {
+//   return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+// };
 
 const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
   return (
@@ -31,7 +41,8 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
       <p className="text-xs sm:text-sm text-[#909090] pt-4">
         Press{" "}
         <kbd className="px-2 py-1 bg-[#2b2b2b] rounded">
-          {isMac() ? "⌘" : "Ctrl"}
+          {/* The <kbd> HTML element represents a user input and produces an inline element displayed in the browser's default monospace font. */}
+          {isMac() ? " " : "Ctrl"}
         </kbd>{" "}
         + K to open search
       </p>
