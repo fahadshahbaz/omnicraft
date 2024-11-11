@@ -20,7 +20,7 @@ const Footer = () => {
           <a href="https://www.linkedin.com/in/fahadshahbaz/" target="_blank">
             <FaLinkedinIn />
           </a>
-          <a href="https:/x.com/fahadshahbaz_" target="_blank">
+          <a href="https://x.com/fahadshahbaz_" target="_blank">
             <FaXTwitter />
           </a>
           <a href="https://github.com/fahadshahbaz" target="_blank">
