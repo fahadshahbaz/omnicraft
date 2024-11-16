@@ -13,9 +13,9 @@ const Card = ({ img, label, para, link }) => {
         <div className="p-5 basis-[35%]">
           <h2 className="text-white text-2xl p-2 font-semibold">{label}</h2>
           <p className="text-zinc-500 text-base pb-[15px] pl-[10px]">{para}</p>
-          <a href={link} target="_blank" class="button ml-[9px]">
+          <a href={link} target="_blank" className="button ml-[9px]">
             Link
-            <div class="arrow">›</div>
+            <div className="arrow">›</div>
           </a>
         </div>
       </section>
