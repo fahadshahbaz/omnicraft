@@ -8,6 +8,7 @@ const Card = ({ img, title, para, link }) => {
             src={img}
             loading="lazy"
             alt="resource image"
+            draggable="false"
           />
         </div>
         <div className="p-5 basis-[35%]">
