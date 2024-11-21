@@ -1,4 +1,4 @@
-const Card = ({ img, label, para, link }) => {
+const Card = ({ img, title, para, link }) => {
   return (
     <>
       <section className="card flex flex-col w-[360px] h-[450px] overflow-hidden transition duration-300 rounded-xl border-2 border-solid border-[#4d4d4da2] font-roboto">
@@ -11,7 +11,7 @@ const Card = ({ img, label, para, link }) => {
           />
         </div>
         <div className="p-5 basis-[35%]">
-          <h2 className="text-white text-2xl p-2 font-semibold">{label}</h2>
+          <h2 className="text-white text-2xl p-2 font-semibold">{title}</h2>
           <p className="text-zinc-500 text-base pb-[15px] pl-[10px]">{para}</p>
           <a href={link} target="_blank" className="button ml-[9px]">
             Link
@@ -28,20 +28,20 @@ export default Card;
 
 // import React from "react";
 
-// const Card = ({ img, label, para, link }) => {
+// const Card = ({ img, title, para, link }) => {
 //   return (
-//     <div id="cards" className="w-[350px] overflow-hidden font-roboto">
+//     <div id="cards" className="w-[300px] font-roboto">
 //       <a href={link}>
 
-//       <div className="relative w-full h-[220px] rounded-t-2xl">
+//       <div className="relative w-full h-[220px] rounded-xl overflow-hidden">
 //         <img
 //           className="border border-gray-800 absolute top-0 left-0 w-full h-full object-cover rounded-xl"
 //           src={img}
-//           alt={label}
+//           alt={title}
 //         />
 //       </div>
 //       <div className="p-2 px-3 flex justify-between items-center">
-//         <h2 className="text-white text-xl font-semibold mb-2">{label}</h2>
+//         <h2 className="text-white text-xl font-semibold mb-2">{title}</h2>
 //         <p className="text-zinc-400 text-base mb-4">{para}</p>
 //         {/* <a id="btn" href={link} target="_blank" rel="noopener noreferrer">Link</a> */}
 //       </div>
