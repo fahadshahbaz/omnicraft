@@ -17,13 +17,28 @@ const Footer = () => {
           <p className="hidden sm:block text-neutral-600 mr-2 text-sm">
             fahadshahbaz166@gmail.com
           </p>
-          <a href="https://www.linkedin.com/in/fahadshahbaz/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/fahadshahbaz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my LinkedIn profile"
+          >
             <FaLinkedinIn />
           </a>
-          <a href="https://x.com/fahadshahbaz_" target="_blank">
+          <a
+            href="https://x.com/fahadshahbaz_"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my Twitter profile"
+          >
             <FaXTwitter />
           </a>
-          <a href="https://github.com/fahadshahbaz" target="_blank">
+          <a
+            href="https://github.com/fahadshahbaz"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my GitHub profile"
+          >
             <TbBrandGithubFilled />
           </a>
         </div>
