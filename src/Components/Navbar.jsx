@@ -2,8 +2,12 @@ const Navbar = () => {
   return (
     <header className="w-full font-roboto">
       <nav className="flex justify-between items-center p-4 px-4 sm:px-12">
-        <a href="#home" className="text-3xl sm:text-4xl font-bold cursor-pointer">
-         <img src="/Logo.jpeg" alt="Logo" className="size-8 mb-2 inline-block"/> OmniCraft<span className="text-4xl text-gray-500">.</span>
+        <a
+          href="#home"
+          className="text-3xl sm:text-4xl font-bold cursor-pointer"
+        >
+          {/* <img src="/Logo.jpeg" alt="Logo" className="size-8 mb-2 inline-block"/>  */}
+          OmniCraft<span className="text-4xl text-gray-500">.</span>
         </a>
         <a
           href="https://github.com/fahadshahbaz"

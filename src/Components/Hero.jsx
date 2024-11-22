@@ -27,7 +27,6 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
         </h3>
         {/* <h3 className="heading-main font-bold">
           Frontend Inspiration resources from a <br />
-          Frontend Dev.
           <span className="text-[#909090] bg-gradient-to-r from-[#89898C] via-[#69696C] to-[#323235] text-transparent bg-clip-text">
             Frontend Dev.
           </span>

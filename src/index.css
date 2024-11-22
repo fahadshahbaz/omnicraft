@@ -84,10 +84,10 @@ img{
     /* transition: .2s linear; */
 }
 
-/* .heading-main{
+.heading-main{
   font-size: clamp(2rem, 4.2vw, 5.3rem);
   line-height: 110%;
-} */
+}
 /* .para-text{
   font-size: clamp(0.80rem, 0.90rem, 1.5rem);
 } */

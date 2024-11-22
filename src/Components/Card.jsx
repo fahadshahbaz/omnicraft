@@ -36,7 +36,7 @@ const Card = ({ img, title, para, link }) => {
       <section className="bg-[#101213] card flex flex-col w-[320px] h-[400px] overflow-hidden rounded-xl border-2 border-solid border-[#3f3f3fa2] font-roboto">
         <div className="">
           <img
-            className="mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-xl"
+            className="mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-lg"
             src={img}
             loading="lazy"
             alt="resource image"
