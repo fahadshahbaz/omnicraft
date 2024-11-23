@@ -47,9 +47,9 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
         setSearchQuery={setSearchQuery}
         searchInputRef={searchInputRef} // Pass the ref to the SearchBar component
       />
-      <p className="text-xs sm:text-sm text-[#909090] pt-4">
+      <p className="text-xs sm:text-sm text-[#7F8080] pt-4">
         Press{" "}
-        <kbd className="px-2 py-1 bg-[#2b2b2b] rounded">
+        <kbd className="px-2 py-1 text-[#c9c9c9] bg-[#2b2b2b] rounded">
           {/* The <kbd> HTML element represents a user input and produces an inline element displayed in the browser's default monospace font. */}
           {isMac() ? " " : "Ctrl"}
         </kbd>{" "}

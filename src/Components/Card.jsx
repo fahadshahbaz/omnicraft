@@ -88,7 +88,7 @@ const Card = ({ img, title, para, link, isFirstImage }) => {
           <h2 className="text-white text-[1.4rem] mt-4 p-2 font-semibold">
             {title}
           </h2>
-          <p className="text-zinc-500 text-base pb-[15px] pl-[10px]">{para}</p>
+          <p className="text-[#7F8080] text-base pb-[15px] pl-[10px]">{para}</p>
         </div>
         <div className="mt-8 pr-3">
           <a
