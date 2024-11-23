@@ -63,7 +63,7 @@
 
 import { FaArrowRight } from "react-icons/fa6";
 
-const Card = ({ img, title, para, link }) => {
+const Card = ({ img, title, para, link, isFirstImage }) => {
   return (
     <section className="bg-[#101213] card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-xl border-2 border-solid border-[#3f3f3fa2] font-roboto">
       <div>
@@ -72,7 +72,7 @@ const Card = ({ img, title, para, link }) => {
           src={img}
           srcSet={`${img}?w=320 320w, ${img}?w=480 480w, ${img}?w=800 800w`}
           sizes="(max-width: 768px) 320px, (max-width: 1024px) 480px, 800px"
-          loading="lazy"
+          loading={isFirstImage ? "eager" : "lazy"} // If it's the first image, load eagerly, otherwise lazy load
           alt={`Image for ${title}`}
           draggable="false"
           style={{
