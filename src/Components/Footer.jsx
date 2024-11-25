@@ -14,9 +14,9 @@ const Footer = () => {
           </a> */}
         </p>
         <div className="flex items-center space-x-4 justify-center">
-          <p className="hidden sm:block text-neutral-600 mr-2 text-sm">
+          {/* <p className="hidden sm:block text-neutral-400 mr-2 text-sm">
             fahadshahbaz166@gmail.com
-          </p>
+          </p> */}
           <a
             href="https://www.linkedin.com/in/fahadshahbaz/"
             target="_blank"
