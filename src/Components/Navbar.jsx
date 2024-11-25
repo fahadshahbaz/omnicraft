@@ -16,7 +16,7 @@ const Navbar = () => {
           aria-label="Visit my GitHub profile"  // Add aria-label here
         >
           <svg
-            className="w-4 h-4 me-1"
+            className="w-4 h-4"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
