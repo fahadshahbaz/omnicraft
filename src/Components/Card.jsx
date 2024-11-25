@@ -1,7 +1,7 @@
 // const Card = ({ img, title, para, link }) => {
 //   return (
 //     <>
-//       <section className="card flex flex-col w-[360px] h-[450px] overflow-hidden transition duration-300 rounded-xl border-2 border-solid border-[#4d4d4da2] font-roboto">
+//       <section className="card flex flex-col w-[360px] h-[450px] overflow-hidden transition duration-300 rounded-xl border-2 border-solid border-[#4d4d4da2]">
 //         <div className="upper-part p-6 bg-[#1A1A1A] basis-[65%]">
 //           <img
 //             className="mx-auto w-[90%] h-[150px] object-cover mt-8 rounded-xl"
@@ -33,7 +33,7 @@
 // const Card = ({ img, title, para, link }) => {
 //   return (
 //     <>
-//       <section className="bg-[#101213] card flex flex-col w-[320px] h-[400px] overflow-hidden rounded-xl border-2 border-solid border-[#3f3f3fa2] font-roboto">
+//       <section className="bg-[#101213] card flex flex-col w-[320px] h-[400px] overflow-hidden rounded-xl border-2 border-solid border-[#3f3f3fa2]">
 //         <div className="">
 //           <img
 //             className="mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-lg"
@@ -65,7 +65,7 @@ import { FaArrowRight } from "react-icons/fa6";
 
 const Card = ({ img, title, para, link, isFirstImage }) => {
   return (
-    <section className="bg-[#101213] card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-xl border-2 border-solid border-[#3f3f3fa2] font-roboto">
+    <section className="bg-[#101213] card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-xl border-2 border-solid border-[#3f3f3fa2]">
       <div>
         <img
           className="mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-lg"

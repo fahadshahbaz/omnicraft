@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <header className="w-full font-roboto">
+    <header className="w-full">
       <nav className="flex justify-between items-center p-4 px-4 sm:px-12">
         <a
           href="#home"

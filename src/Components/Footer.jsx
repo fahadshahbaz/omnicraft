@@ -4,7 +4,7 @@ import { TbBrandGithubFilled } from "react-icons/tb";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 font-roboto space-y-6 pb-3">
+    <footer className="mt-20 space-y-6 pb-3">
       <div className="w-full h-[1px] bg-[#212223]" />
       <div className="w-full mx-auto flex justify-around items-center py-1">
         <p className="text-center font-medium text-base text-zinc-300">

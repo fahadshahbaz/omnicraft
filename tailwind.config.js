@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
+        openSans: ["Open Sans", "sans-serif"],
       },
     },
   },
