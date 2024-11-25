@@ -94,7 +94,7 @@ const Card = ({ img, title, para, link, isFirstImage }) => {
           <a
             href={link}
             target="_blank"
-            className="button rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="button rounded-full focus:outline-none"
             aria-label={`Visit ${title}`}
           >
             <FaArrowRight />
