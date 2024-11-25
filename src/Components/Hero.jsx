@@ -15,16 +15,17 @@ const isMac = () => {
 const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
   return (
     <div className="w-full mx-auto text-center flex justify-center items-center flex-col py-28 lg:py-32">
-      <div className="w-full sm:w-[65%] lg:w-[60%] mx-auto">
-        <h3 className="lg:leading-[1.1] font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-[4rem]">
-          Frontend Inspiration resources from a <br />
+      {/* <div className="w-full sm:w-[65%] lg:w-[60%] mx-auto"> */}
+      <div className="w-fit flex justify-center items-center flex-col mx-auto">
+        <h3 className="lg:leading-[1.1] font-semibold text-3xl sm:text-5xl xl:text-[4rem]">
+          Frontend Inspiration <br /> resources from a <br />
           Frontend Dev.
         </h3>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#7F8080] pt-5 leading-relaxed">
+          Discover top tools and resources to boost <br />
+          your workflow and sharpen your skills.
+        </p>
       </div>
-      <p className="para-text text-sm sm:text-base md:text-lg lg:text-xl text-[#7F8080] pt-5 w-[75%] sm:w-[50%] lg:w-[35%] leading-relaxed">
-        Discover top tools and resources to boost your workflow and sharpen your
-        skills.
-      </p>
 
       <SearchBar
         searchQuery={searchQuery}

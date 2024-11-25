@@ -65,7 +65,7 @@ import { FaArrowRight } from "react-icons/fa6";
 
 const Card = ({ img, title, para, link, isFirstImage }) => {
   return (
-    <section className="bg-[#101213] card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-xl border-2 border-solid border-[#3f3f3fa2]">
+    <section className="bg-[#171717] card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-xl border border-solid border-[#3f3f3fa2]">
       <div>
         <img
           className="mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-lg"
