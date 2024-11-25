@@ -27,7 +27,6 @@
 
 // Above is perfect working card.
 
-
 // import { FaArrowRight } from "react-icons/fa6";
 
 // const Card = ({ img, title, para, link }) => {
@@ -60,19 +59,33 @@
 // };
 // export default Card;
 
-
 import { FaArrowRight } from "react-icons/fa6";
 
 const Card = ({ img, title, para, link, isFirstImage }) => {
   return (
     <section className="bg-[#171717] card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-xl border border-solid border-[#3f3f3fa2]">
       <div>
-        <img
+        {/* <img
           className="mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-lg"
           src={img}
           srcSet={`${img}?w=320 320w, ${img}?w=480 480w, ${img}?w=800 800w`}
           sizes="(max-width: 768px) 320px, (max-width: 1024px) 480px, 800px"
           loading={isFirstImage ? "eager" : "lazy"} // If it's the first image, load eagerly, otherwise lazy load
+          alt={`Image for ${title}`}
+          draggable="false"
+          style={{
+            backgroundColor: "#202225",
+            filter: "blur(10px)",
+            transition: "filter 0.3s ease-in-out",
+          }}
+          onLoad={(e) => (e.target.style.filter = "none")}
+        /> */}
+        <img
+          className="mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-lg"
+          src={img}
+          srcSet={`${img}?w=320 320w, ${img}?w=480 480w, ${img}?w=800 800w`}
+          sizes="(max-width: 768px) 480px, (max-width: 1024px) 480px, 800px"
+          loading={isFirstImage ? "eager" : "lazy"}
           alt={`Image for ${title}`}
           draggable="false"
           style={{
