@@ -17,7 +17,7 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
     <div className="w-full mx-auto text-center flex justify-center items-center flex-col py-28 lg:py-32">
       {/* <div className="w-full sm:w-[65%] lg:w-[60%] mx-auto"> */}
       <div className="w-fit flex justify-center items-center flex-col mx-auto">
-        <h3 className="lg:leading-[1.1] font-semibold text-3xl sm:text-5xl xl:text-[4rem]">
+        <h3 className="lg:leading-[1.1] font-bold text-3xl sm:text-5xl xl:text-[4rem]">
           Frontend Inspiration <br /> resources from a <br />
           Frontend Dev.
         </h3>
