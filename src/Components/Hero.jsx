@@ -1,4 +1,3 @@
-import React from "react";
 import SearchBar from "./SearchBar.jsx";
 
 // Helper function to detect if the user is on a Mac
