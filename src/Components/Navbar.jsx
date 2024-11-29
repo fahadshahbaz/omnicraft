@@ -1,13 +1,18 @@
+import box from "../assets/icons/box.svg"
+
 const Navbar = () => {
   return (
     <header className="w-full">
       <nav className="flex justify-between items-center p-4 px-4 sm:px-16">
+        <div className="flex items-center justify-center space-x-3">
+          <img src={box} alt="logo" className="size-9 inline-block" />
         <a
           href="#home"
           className="text-3xl sm:text-4xl font-bold cursor-pointer"
-        >
+          >
           OmniCraft<span className="text-4xl text-gray-500">.</span>
         </a>
+          </div>
         <a
           href="https://github.com/fahadshahbaz"
           target="_blank"
