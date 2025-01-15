@@ -9,7 +9,9 @@ const Footer = () => {
       <div className="w-full h-[1px] bg-[#212223]" />
       <div className="w-full mx-auto flex justify-around items-center py-1">
         <p className="text-center font-semibold text-base text-zinc-300">
-          <img src={box} alt="logo" className="size-9 inline-block mr-3" /> © 2023 Omnicraft. <span className="hidden md:inline-block"> All rights reserved.</span>
+          <img src={box} alt="logo" className="size-7 inline-block mr-3" /> ©
+          2023 Omnicraft.{" "}
+          <span className="hidden md:inline-block"> All rights reserved.</span>
           {/* <a href="https://fahadshahbaz.vercel.app" target="_blank">
             Fahad.
           </a> */}

@@ -25,7 +25,6 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
           your workflow and sharpen your skills.
         </p>
       </div>
-
       <SearchBar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
