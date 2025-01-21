@@ -7,6 +7,7 @@ const TagsFilter = ({ onFilterChange }) => {
     "UI",
     "Typography",
     "Portfolio",
+    "AI",
     "Interview",
     "Resources",
     "Learning",
@@ -14,7 +15,6 @@ const TagsFilter = ({ onFilterChange }) => {
     "Animation",
     "Open Source",
     "Practice",
-    "AI",
     "CSS", // Added missing tag from data
   ];
 
@@ -64,10 +64,10 @@ const TagsFilter = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="relative w-11/12 max-w-screen-2xl mx-auto px-4 sm:px-9">
+    <div className="relative w-11/12 max-w-screen-2xl mx-auto px-2 sm:px-9">
       <div
         ref={tagsContainerRef}
-        className="flex gap-4 overflow-x-auto scroll-smooth hide-scrollbar"
+        className="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar"
       >
         {tags.map((tag) => (
           <li
