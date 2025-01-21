@@ -5,7 +5,7 @@ const Navbar = () => {
     <header className="w-full">
       <nav className="flex justify-between items-center p-4 px-4 sm:px-16">
         <div className="flex items-center justify-center space-x-3">
-          <img src={box} alt="logo" className="size-9 inline-block" />
+          <img src={box} alt="logo" className="size-7 sm:size-9 inline-block" />
           <a
             href="#home"
             className="text-3xl sm:text-4xl font-bold cursor-pointer"
