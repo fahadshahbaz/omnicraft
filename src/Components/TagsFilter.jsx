@@ -13,7 +13,6 @@ const TagsFilter = ({ onFilterChange }) => {
     "Learning",
     "Tools",
     "Animation",
-    // "Open Source",
   ];
 
   const [selectedTags, setSelectedTags] = useState(["All"]);
@@ -37,13 +36,12 @@ const TagsFilter = ({ onFilterChange }) => {
       newSelectedTags = ["All"];
     } else {
       // If another tag is clicked
-      newSelectedTags = selectedTags.includes(tag)
-        ? selectedTags.filter((t) => t !== tag) // Deselect the tag
-        : [...selectedTags.filter((t) => t !== "All"), tag]; // Add the tag and remove "All"
-
-      // If no tags are selected after deselecting, default to "All"
-      if (newSelectedTags.length === 0) {
+      if (selectedTags.includes(tag)) {
+        // If the tag is already selected, deselect it and default to "All"
         newSelectedTags = ["All"];
+      } else {
+        // If the tag is not selected, select it (and remove "All")
+        newSelectedTags = [tag];
       }
     }
 
@@ -63,32 +61,37 @@ const TagsFilter = ({ onFilterChange }) => {
 
   return (
     <div className="relative w-11/12 max-w-screen-2xl mx-auto px-2 sm:px-9">
-      <div
+      <ul
         ref={tagsContainerRef}
+        role="list"
         className="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar"
+        aria-label="Filter Tags"
       >
         {tags.map((tag) => (
           <li
             key={tag}
             onClick={() => handleTagClick(tag)}
+            role="listitem"
+            tabIndex={0} // Make the tag focusable via keyboard
+            aria-pressed={selectedTags.includes(tag)} // Indicate whether the tag is selected
             className={`
               flex-shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300
-              ${
-                selectedTags.includes(tag)
-                  ? "bg-[#161616] !border !border-neutral-700 text-white border-transparent" 
-                  : "text-neutral-500 hover:text-white hover:bg-[#252525]"
+              ${selectedTags.includes(tag)
+                ? "bg-[#161616] !border-2 !border-neutral-700 text-white border-transparent"
+                : "text-neutral-500 hover:text-white hover:bg-[#252525]"
               }
             `}
           >
             {tag}
           </li>
         ))}
-      </div>
+      </ul>
 
       {showScrollArrow && (
         <button
           onClick={() => scrollTags(200)} // Scroll 200px to the right
-          className="absolute right-0 top-[53%] transform -translate-y-1/2 p-2 rounded-full text-white opacity-75 hover:opacity-100 transition-opacity"
+          className="absolute right-0 top-[50%] transform -translate-y-1/2 p-1 rounded-full text-white opacity-75 hover:opacity-100 transition-opacity"
+          aria-label="Scroll right to view more tags" // Add a descriptive label for screen readers
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -96,12 +99,13 @@ const TagsFilter = ({ onFilterChange }) => {
             width="1em"
             height="1.2em"
             className="bg-[#000002]"
+            aria-hidden="true" // Hide the icon from screen readers
           >
             <path
               fill="currentColor"
               d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
             ></path>
-          </svg>{" "}
+          </svg>
         </button>
       )}
     </div>
