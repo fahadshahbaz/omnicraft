@@ -88,7 +88,7 @@ const TagsFilter = ({ onFilterChange }) => {
       {showScrollArrow && (
         <button
           onClick={() => scrollTags(200)} // Scroll 200px to the right
-          className="border-2 border-orange-600 absolute right-0 top-[53%] transform -translate-y-1/2 p-2 rounded-full text-white opacity-75 hover:opacity-100 transition-opacity"
+          className="absolute right-0 top-[53%] transform -translate-y-1/2 p-2 rounded-full text-white opacity-75 hover:opacity-100 transition-opacity"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
