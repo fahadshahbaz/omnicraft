@@ -4,18 +4,16 @@ const TagsFilter = ({ onFilterChange }) => {
   const tags = [
     "All",
     "Inspiration",
-    "UI",
+    "UI Libraries",
     "Typography",
     "Portfolio",
     "AI",
-    "Interview",
+    "Interview Prep",
     "Resources",
     "Learning",
     "Tools",
     "Animation",
-    "Open Source",
-    "Practice",
-    "CSS", // Added missing tag from data
+    // "Open Source",
   ];
 
   const [selectedTags, setSelectedTags] = useState(["All"]);
@@ -74,7 +72,7 @@ const TagsFilter = ({ onFilterChange }) => {
             key={tag}
             onClick={() => handleTagClick(tag)}
             className={`
-              flex-shrink-0 rounded-md list-none py-[0.3rem] px-4 cursor-pointer transition-all ease-in-out duration-300
+              flex-shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300
               ${
                 selectedTags.includes(tag)
                   ? "bg-[#161616] !border !border-neutral-700 text-white border-transparent" 
@@ -90,13 +88,14 @@ const TagsFilter = ({ onFilterChange }) => {
       {showScrollArrow && (
         <button
           onClick={() => scrollTags(200)} // Scroll 200px to the right
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 rounded-full text-white opacity-75 hover:opacity-100 transition-opacity"
+          className="border-2 border-orange-600 absolute right-0 top-[53%] transform -translate-y-1/2 p-2 rounded-full text-white opacity-75 hover:opacity-100 transition-opacity"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             width="1em"
-            height="1em"
+            height="1.2em"
+            className="bg-[#000002]"
           >
             <path
               fill="currentColor"
