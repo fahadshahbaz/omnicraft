@@ -8,9 +8,9 @@ const Navbar = () => {
           <img src={box} alt="logo" className="size-7 sm:size-9 inline-block" />
           <a
             href="#home"
-            className="text-3xl sm:text-4xl font-bold cursor-pointer"
+            className="text-2xl sm:text-4xl font-bold cursor-pointer"
           >
-            OmniCraft
+            OmniCraft.
           </a>
         </div>
         <a
@@ -19,7 +19,7 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Submit feedback" // Add aria-label here
-          className="flex justify-center items-center bg-white text-black text-sm sm:text-base px-5 py-2 rounded-md font-semibold hover:bg-gray-300 duration-300 transition-all linear cursor-pointer"
+          className="flex justify-center items-center bg-white text-black text-sm sm:text-base px-5 py-2 rounded-md font-bold hover:bg-gray-300 duration-300 transition-all linear cursor-pointer"
         >
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
