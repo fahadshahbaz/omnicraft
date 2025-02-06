@@ -68,8 +68,8 @@ const Card = ({ img, title, para, link, isFirstImage }) => {
         <img
           className="cardimage mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-lg"
           src={img}
-          srcSet={`${img}?w=320 320w, ${img}?w=480 480w, ${img}?w=800 800w`}
-          sizes="(max-width: 768px) 480px, (max-width: 1024px) 480px, 800px"
+          srcSet={`${img}?w=400 400w`}
+          sizes="320px"
           loading={isFirstImage ? "eager" : "lazy"}
           alt={`Image for ${title}`}
           draggable="false"
