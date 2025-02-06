@@ -77,7 +77,7 @@ const TagsFilter = ({ onFilterChange }) => {
             className={`
               flex-shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300
               ${selectedTags.includes(tag)
-                ? "bg-[#161616] !border-2 !border-neutral-700 text-white border-transparent"
+                ? "bg-[#ffffff] text-black border-transparent"
                 : "text-neutral-500 hover:text-white hover:bg-[#252525]"
               }
             `}
