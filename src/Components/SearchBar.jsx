@@ -1,12 +1,13 @@
-import { useState } from 'react';
+'use client';
+import { useState } from "react";
 
 const SearchBar = ({ setSearchQuery, searchInputRef }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearchQuery(inputValue);
-    setInputValue(''); 
+    setInputValue("");
   };
 
   return (

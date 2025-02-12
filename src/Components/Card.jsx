@@ -59,28 +59,119 @@
 // };
 // export default Card;
 
-import { FaArrowRight } from "react-icons/fa6";
+// import { FaArrowRight } from "react-icons/fa6";
+// import Image from "next/image";
 
-const Card = ({ img, title, para, link, isFirstImage }) => {
+// const Card = ({ img, title, para, link }) => {
+//   return (
+//     <section className="bg-[#171717] card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-xl border border-solid border-[#3f3f3fa2]">
+//       <div>
+//         <Image
+//           className="cardimage mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-lg"
+//           src={img}
+//           // sizes="320px"
+//           width={320}
+//           height={200}
+//           alt={`Image for ${title}`}
+//           draggable="false"
+//           style={{
+//             backgroundColor: "#202225",
+//             filter: "blur(10px)",
+//             transition: "filter 0.3s ease-in-out",
+//           }}
+//           onLoad={(e) => (e.target.style.filter = "none")}
+//         />
+//       </div>
+//       <div className="flex justify-between items-center p-4">
+//         <div>
+//           <h2 className="text-white text-[1.4rem] mt-4 p-2 font-semibold">
+//             {title}
+//           </h2>
+//           <p className="text-[#7F8080] text-base pb-[15px] pl-[10px]">{para}</p>
+//         </div>
+//         <div className="mt-8 pr-3">
+//           <a
+//             href={link}
+//             target="_blank"
+//             className="button rounded-full focus:outline-none"
+//             aria-label={`Visit ${title}`}
+//           >
+//             <FaArrowRight />
+//           </a>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Card;
+
+// import { FaArrowRight } from "react-icons/fa6";
+// import Image from "next/image";
+
+// const Card = ({ img, title, para, link }) => {
+//   return (
+//     <section className="bg-[#171717] card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-xl border border-solid border-[#3f3f3fa2]">
+//       <div className="w-[85%] h-[200px] mx-auto mt-8 relative">
+//         <Image
+//           className="rounded-lg object-cover"
+//           src={img}
+//           fill={true}
+//           alt={`Image for ${title}`}
+//           draggable="false"
+//           style={{
+//             backgroundColor: "#202225",
+//             filter: "blur(10px)",
+//             transition: "filter 0.3s ease-in-out",
+//           }}
+//           onLoad={(e) => (e.target.style.filter = "none")}
+//         />
+//       </div>
+//       <div className="flex justify-between items-center p-4">
+//         <div>
+//           <h2 className="text-white text-[1.4rem] mt-4 p-2 font-semibold">
+//             {title}
+//           </h2>
+//           <p className="text-[#7F8080] text-base pb-[15px] pl-[10px]">{para}</p>
+//         </div>
+//         <div className="mt-8 pr-3">
+//           <a
+//             href={link}
+//             target="_blank"
+//             className="button rounded-full focus:outline-none"
+//             aria-label={`Visit ${title}`}
+//           >
+//             <FaArrowRight />
+//           </a>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Card;
+
+import { FaArrowRight } from "react-icons/fa6";
+import Image from "next/image";
+
+const Card = ({ img, title, para, link }) => {
   return (
     <section className="bg-[#171717] card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-xl border border-solid border-[#3f3f3fa2]">
-      <div>
-        <img
-          className="cardimage mx-auto w-[85%] h-[200px] object-cover mt-8 rounded-lg"
-          src={img}
-          srcSet={`${img}?w=400 400w`}
-          sizes="320px"
-          loading={isFirstImage ? "eager" : "lazy"}
-          alt={`Image for ${title}`}
-          draggable="false"
-          style={{
-            backgroundColor: "#202225",
-            filter: "blur(10px)",
-            transition: "filter 0.3s ease-in-out",
-          }}
-          onLoad={(e) => (e.target.style.filter = "none")}
-        />
-      </div>
+      <Image
+        className="mx-auto w-[272px] h-[200px] object-cover mt-8 rounded-lg"
+        src={img}
+        width={272} // 85% of 320px card width
+        height={200}
+        // sizes="272px"
+        alt={`Image for ${title}`}
+        draggable="false"
+        style={{
+          backgroundColor: "#202225",
+          filter: "blur(10px)",
+          transition: "filter 0.3s ease-in-out",
+        }}
+        onLoad={(e) => (e.target.style.filter = "none")}
+      />
       <div className="flex justify-between items-center p-4">
         <div>
           <h2 className="text-white text-[1.4rem] mt-4 p-2 font-semibold">

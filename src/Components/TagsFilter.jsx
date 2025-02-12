@@ -1,3 +1,4 @@
+'use client';
 import { useState, useRef, useEffect } from "react";
 
 const TagsFilter = ({ onFilterChange }) => {
@@ -76,9 +77,10 @@ const TagsFilter = ({ onFilterChange }) => {
             aria-pressed={selectedTags.includes(tag)} // Indicate whether the tag is selected
             className={`
               flex-shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300
-              ${selectedTags.includes(tag)
-                ? "bg-[#ffffff] text-black border-transparent"
-                : "text-neutral-500 hover:text-white hover:bg-[#252525]"
+              ${
+                selectedTags.includes(tag)
+                  ? "bg-[#ffffff] text-black border-transparent"
+                  : "text-neutral-500 hover:text-white hover:bg-[#252525]"
               }
             `}
           >

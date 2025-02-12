@@ -1,11 +1,16 @@
-import box from "../assets/icons/box.svg";
+import box from "@/assets/icons/box.svg";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
     <header className="w-full">
       <nav className="flex justify-between items-center p-4 px-4 sm:px-16">
         <div className="flex items-center justify-center space-x-3">
-          <img src={box} alt="logo" className="size-7 sm:size-9 inline-block" />
+          <Image
+            src={box}
+            alt="logo"
+            className="size-7 sm:size-9 inline-block"
+          />
           <a
             href="#home"
             className="text-2xl sm:text-4xl font-bold cursor-pointer"
@@ -14,7 +19,6 @@ const Navbar = () => {
           </a>
         </div>
         <a
-          // href="https://github.com/fahadshahbaz"
           href="https://forms.gle/wGoTwG7tz6u1U5zt7"
           target="_blank"
           rel="noopener noreferrer"

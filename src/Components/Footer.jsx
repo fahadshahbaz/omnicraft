@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { TbBrandGithubFilled } from "react-icons/tb";
-import box from "../assets/icons/box.svg";
+import box from "@/assets/icons/box.svg";
 
 const Footer = () => {
   return (
@@ -9,17 +10,11 @@ const Footer = () => {
       <div className="w-full h-[1px] bg-[#212223]" />
       <div className="w-full mx-auto flex justify-around items-center py-1">
         <p className="text-center font-semibold text-base text-zinc-300">
-          <img src={box} alt="logo" className="size-7 inline-block mr-3" /> ©
+          <Image src={box} alt="logo" className="size-7 inline-block mr-3" /> ©
           2023 Omnicraft.{" "}
           <span className="hidden md:inline-block"> All rights reserved.</span>
-          {/* <a href="https://fahadshahbaz.vercel.app" target="_blank">
-            Fahad.
-          </a> */}
         </p>
         <div className="flex items-center space-x-4 justify-center">
-          {/* <p className="hidden sm:block text-neutral-400 mr-2 text-sm">
-            fahadshahbaz166@gmail.com
-          </p> */}
           <a
             href="https://www.linkedin.com/in/fahadshahbaz/"
             target="_blank"

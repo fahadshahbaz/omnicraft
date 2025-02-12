@@ -11,7 +11,7 @@ Explore a collection of design resources, icons, UI libraries, and much more, al
 
 
 ## **🛠 Technologies Used**
-- **Frontend**: React.js, Tailwind CSS  
+- **Frontend**: React.js, Next.js, Tailwind CSS  
 - **Hosting**: Vercel  
 - **Analytics**: Vercel Analytics  
 
