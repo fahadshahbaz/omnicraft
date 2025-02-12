@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
-import Hero from "@/components/Hero";
+import Hero from "@/components/Hero.jsx";
 import CardContainer from "@/components/CardContainer";
-import Card from "@/components/Card";
-import { data } from "@/Data/index";
-import LoadMoreLessButtons from "@/components/LoadMoreLessButton";
-import SearchModal from "@/components/SearchModal";
-import TagsFilter from "@/components/TagsFilter";
+import Card from "@/components/Card.jsx";
+import { data } from "@/data/index.js";
+import LoadMoreLessButtons from "@/components/LoadMoreLessButton.jsx";
+import SearchModal from "@/components/SearchModal.jsx";
+import TagsFilter from "@/components/TagsFilter.jsx";
 
 // Define a constant for the initial number of cards to display
 const INITIAL_CARDS = 8;
