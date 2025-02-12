@@ -64,7 +64,7 @@ export default function TagsFilter({ onFilterChange }) {
     <div className="relative w-11/12 max-w-screen-2xl mx-auto px-2 sm:px-9">
       <ul
         ref={tagsContainerRef}
-        role="list"
+        role="listbox"
         className="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar"
         aria-label="Filter Tags"
       >
@@ -72,17 +72,17 @@ export default function TagsFilter({ onFilterChange }) {
           <li
             key={tag}
             onClick={() => handleTagClick(tag)}
-            role="listitem"
-            tabIndex={0} // Make the tag focusable via keyboard
-            aria-pressed={selectedTags.includes(tag)} // Indicate whether the tag is selected
+            role="option"
+            tabIndex={0}
+            aria-selected={selectedTags.includes(tag)}
             className={`
-              flex-shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300
-              ${
-                selectedTags.includes(tag)
-                  ? "bg-[#ffffff] text-black border-transparent"
-                  : "text-neutral-500 hover:text-white hover:bg-[#252525]"
-              }
-            `}
+        flex-shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300
+        ${
+          selectedTags.includes(tag)
+            ? "bg-[#ffffff] text-black border-transparent"
+            : "text-neutral-500 hover:text-white hover:bg-[#252525]"
+        }
+      `}
           >
             {tag}
           </li>
