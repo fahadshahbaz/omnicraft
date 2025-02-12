@@ -12,6 +12,7 @@ export default function Card({ img, title, para, link }) {
         // sizes="272px"
         alt={`Image for ${title}`}
         draggable="false"
+        unoptimized // to prevent Next.js from optimizing the image, vercel showing issue so temporary fix
         style={{
           backgroundColor: "#202225",
           filter: "blur(10px)",
