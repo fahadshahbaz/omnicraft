@@ -3,7 +3,12 @@ import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
 
-const SearchModal = ({ isOpen, setSearchQuery, searchInputRef, onClose }) => {
+export default function SearchModal({
+  isOpen,
+  setSearchQuery,
+  searchInputRef,
+  onClose,
+}) {
   const [inputValue, setInputValue] = useState("");
 
   if (!isOpen) return null;
@@ -38,6 +43,4 @@ const SearchModal = ({ isOpen, setSearchQuery, searchInputRef, onClose }) => {
       </div>
     </div>
   );
-};
-
-export default SearchModal;
+}

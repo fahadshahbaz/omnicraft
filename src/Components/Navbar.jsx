@@ -1,7 +1,7 @@
 import box from "@/assets/icons/box.svg";
 import Image from "next/image";
 
-const Navbar = () => {
+export default function Navbar() {
   return (
     <header className="w-full">
       <nav className="flex justify-between items-center p-4 px-4 sm:px-16">
@@ -46,6 +46,4 @@ const Navbar = () => {
       </div>
     </header>
   );
-};
-
-export default Navbar;
+}

@@ -4,7 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { TbBrandGithubFilled } from "react-icons/tb";
 import box from "@/assets/icons/box.svg";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="mt-20 space-y-6 pb-3">
       <div className="w-full h-[1px] bg-[#212223]" />
@@ -43,6 +43,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

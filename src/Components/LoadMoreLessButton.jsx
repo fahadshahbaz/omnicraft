@@ -1,9 +1,9 @@
-const LoadMoreLessButton = ({
+export default function LoadMoreLessButton({
   visibleCards,
   filteredData,
   loadMoreCards,
   loadLessCards,
-}) => {
+}) {
   return (
     <div className="flex justify-center my-6">
       {visibleCards < filteredData.length ? (
@@ -23,6 +23,4 @@ const LoadMoreLessButton = ({
       )}
     </div>
   );
-};
-
-export default LoadMoreLessButton;
+}

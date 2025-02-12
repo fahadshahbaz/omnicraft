@@ -1,7 +1,7 @@
-'use client';
+"use client";
 import { useState, useRef, useEffect } from "react";
 
-const TagsFilter = ({ onFilterChange }) => {
+export default function TagsFilter({ onFilterChange }) {
   const tags = [
     "All",
     "Inspiration",
@@ -112,6 +112,4 @@ const TagsFilter = ({ onFilterChange }) => {
       )}
     </div>
   );
-};
-
-export default TagsFilter;
+}

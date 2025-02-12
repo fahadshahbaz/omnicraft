@@ -1,7 +1,7 @@
-'use client';
+"use client";
 import { useState } from "react";
 
-const SearchBar = ({ setSearchQuery, searchInputRef }) => {
+export default function SearchBar({ setSearchQuery, searchInputRef }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -31,6 +31,4 @@ const SearchBar = ({ setSearchQuery, searchInputRef }) => {
       </form>
     </div>
   );
-};
-
-export default SearchBar;
+}
