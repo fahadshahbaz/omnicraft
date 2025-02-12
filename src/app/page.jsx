@@ -5,7 +5,7 @@ import CardContainer from "@/components/CardContainer";
 import Card from "@/components/Card";
 import { data } from "@/data/index";
 import LoadMoreLessButtons from "@/components/LoadMoreLessButton";
-import SearchModal from "@/components/SearchBar";
+import SearchModal from "@/components/SearchModal";
 import TagsFilter from "@/components/TagsFilter";
 
 // Define a constant for the initial number of cards to display
