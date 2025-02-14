@@ -19,12 +19,15 @@ const isMac = () => {
 
 const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
   return (
-    <div className="w-full mx-auto text-center flex justify-center items-center flex-col py-28 lg:py-32">
+    <div className="w-full mx-auto text-center flex justify-center items-center flex-col py-28">
       <div className="max-w-5xl flex justify-center items-center flex-col mx-auto">
-        <h3 className="font-bold text-3xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.2] sm:leading-[1.18] xl:leading-[1.16] 2xl:leading-[1.16]">
+        {/* <h3 className="font-semibold text-3xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.2] sm:leading-[1.18] xl:leading-[1.16] 2xl:leading-[1.16]">
           The Best Resources for <br /> Design and Code <br /> in One Place
-        </h3>{" "}
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#7F8080] pt-5 leading-relaxed">
+        </h3>{" "} */}
+        <h3 className="font-bold text-3xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.2] sm:leading-[1.18] xl:leading-[1.16] 2xl:leading-[1.16] bg-gradient-to-r from-[#919187] to-[#E0E0D7] bg-clip-text text-transparent">
+          The Best Resources for <br /> Design and Code <br /> in One Place
+        </h3>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#7D7F78] pt-5 leading-relaxed">
           Discover top tools and resources to boost <br />
           your workflow and sharpen your skills.
         </p>
