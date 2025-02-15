@@ -5,18 +5,18 @@ export default function LoadMoreLessButton({
   loadLessCards,
 }) {
   return (
-    <div className="flex justify-center my-6">
+    <div className="flex justify-center my-8">
       {visibleCards < filteredData.length ? (
         <button
           onClick={loadMoreCards}
-          className="cursor-pointer mt-4 p-3 px-10 font-medium border-2 border-[#4f4f4f] hover:bg-white transition-all duration-300 ease-linear hover:text-black rounded-md"
+          className="cursor-pointer mt-4 px-7 py-[0.9rem] font-medium bg-[#131313] border border-[#2b2b2b] hover:bg-white transition-all duration-300 ease-linear hover:text-black rounded-full"
         >
           Load More
         </button>
       ) : (
         <button
           onClick={loadLessCards}
-          className="cursor-pointer mt-4 p-3 px-10 font-medium border-2 border-[#4f4f4f] hover:bg-white transition-all duration-300 ease-linear hover:text-black rounded-md"
+          className="cursor-pointer mt-4 px-7 py-[0.9rem] font-medium bg-[#131313] border border-[#2b2b2b] hover:bg-white transition-all duration-300 ease-linear hover:text-black rounded-full"
         >
           Load Less
         </button>
