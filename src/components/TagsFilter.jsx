@@ -7,11 +7,11 @@ export default function TagsFilter({ onFilterChange }) {
     "Inspiration",
     "UI Libraries",
     "Typography",
+    "Color",
     "Portfolio",
     "AI",
     "Interview Prep",
     "Resources",
-    "Learning",
     "Tools",
     "Animation",
   ];
