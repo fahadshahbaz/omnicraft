@@ -7,6 +7,7 @@ import { data } from "@/data/index";
 import LoadMoreLessButtons from "@/components/LoadMoreLessButton";
 import SearchModal from "@/components/SearchModal";
 import TagsFilter from "@/components/TagsFilter";
+import FAQSection from "@/components/FaqSection";
 
 // Define a constant for the initial number of cards to display
 const INITIAL_CARDS = 8;
@@ -91,6 +92,7 @@ function App() {
         searchInputRef={searchInputRef}
         onClose={closeSearchModal}
       />
+      <FAQSection />
     </>
   );
 }

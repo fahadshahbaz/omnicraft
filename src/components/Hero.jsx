@@ -24,7 +24,7 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
         {/* <h3 className="font-semibold text-3xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.2] sm:leading-[1.18] xl:leading-[1.16] 2xl:leading-[1.16]">
           The Best Resources for <br /> Design and Code <br /> in One Place
         </h3>{" "} */}
-        <h3 className="font-bold text-3xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.2] sm:leading-[1.18] xl:leading-[1.16] 2xl:leading-[1.16] bg-gradient-to-r from-[#919187] to-[#E0E0D7] bg-clip-text text-transparent">
+        <h3 className="font-bold text-3xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.2] sm:leading-[1.18] xl:leading-[1.16] 2xl:leading-[1.16] bg-gradient-to-r from-[#cccccc] to-[#888888] bg-clip-text text-transparent">
           The Best Resources for <br /> Design and Code <br /> in One Place
         </h3>
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#7D7F78] pt-5 leading-relaxed">

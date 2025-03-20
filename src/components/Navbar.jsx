@@ -1,4 +1,3 @@
-// import box from "@/assets/icons/box.svg";
 import gray from "@/assets/icons/gray.svg";
 import Image from "next/image";
 
@@ -14,20 +13,29 @@ export default function Navbar() {
           />
           <a
             href="#home"
-            className="text-2xl sm:text-4xl font-bold cursor-pointer text-[]"
+            className="text-2xl sm:text-4xl font-bold cursor-pointer"
           >
             OmniCraft.
           </a>
         </div>
-        <a
-          href="https://forms.gle/wGoTwG7tz6u1U5zt7"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Submit feedback" // Add aria-label here
-          className="flex justify-center items-center bg-[#131313] border border-[#2b2b2b] text-sm sm:text-base px-5 sm:px-7 py-[0.6rem] sm:py-[0.9rem] rounded-full font-semibold hover:bg-gray-300 hover:text-[#232323] duration-300 transition-all linear cursor-pointer"
-        >
-          Feedback
-        </a>
+        <div className="flex items-center space-x-4 sm:space-x-6">
+          <a
+            href="#faq"
+            aria-label="View FAQ"
+            className="text-sm sm:text-base font-semibold hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
+          >
+            FAQ
+          </a>
+          <a
+            href="https://forms.gle/wGoTwG7tz6u1U5zt7"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Submit feedback"
+            className="flex justify-center items-center bg-[#131313] border border-[#2b2b2b] text-sm sm:text-base px-5 sm:px-7 py-[0.6rem] sm:py-[0.9rem] rounded-full font-semibold hover:bg-gray-300 hover:text-[#232323] duration-300 transition-all linear cursor-pointer"
+          >
+            Feedback
+          </a>
+        </div>
       </nav>
       {/* <div className="flex justify-center items-center">
         <div className="w-full h-[1px] bg-[#212223]" />
