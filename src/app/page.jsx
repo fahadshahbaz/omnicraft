@@ -45,7 +45,7 @@ function App() {
   const filteredData = data.filter((card) => {
     const matchesSearchQuery =
       card.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      card.para.toLowerCase().includes(searchQuery.toLowerCase());
+      card.description.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesTags =
       selectedTags.includes("All") ||
