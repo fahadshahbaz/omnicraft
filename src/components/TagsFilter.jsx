@@ -4,16 +4,14 @@ import { useState, useRef, useEffect } from "react";
 export default function TagsFilter({ onFilterChange }) {
   const tags = [
     "All",
-    "Inspiration",
-    "UI Libraries",
-    "Typography",
+    "Design", // Combined from Inspiration and Portfolio
+    "Typography", 
     "Color",
-    "Portfolio",
-    "AI",
-    "Interview Prep",
-    "Resources",
-    "Tools",
-    "Animation",
+    "Components", // Combined from UI Libraries and UI
+    "Tools", // For utilities
+    "Resources", // For learning materials
+    "AI", // For AI tools
+    "Animation", // For animations
   ];
 
   const [selectedTags, setSelectedTags] = useState(["All"]);
