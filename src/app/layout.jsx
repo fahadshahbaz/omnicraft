@@ -32,6 +32,14 @@ export const metadata = {
     ],
     type: "website",
   },
+  icons: {
+    icon: [
+      {
+        url: "/favicon.png",
+        type: "image/png",
+      },
+    ],
+  },
   twitter: {
     card: "summary_large_image",
     site: "@OmniCraft",
