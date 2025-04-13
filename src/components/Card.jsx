@@ -11,7 +11,6 @@ export default function Card({ img, title, description, link }) {
         height={200}
         alt={`Image for ${title}`}
         draggable="false"
-        unoptimized // to prevent Next.js from optimizing the image, vercel showing issue so temporary fix
         style={{
           backgroundColor: "#202225",
           filter: "blur(10px)",
@@ -21,10 +20,12 @@ export default function Card({ img, title, description, link }) {
       />
       <div className="flex justify-between items-center p-4">
         <div>
-          <h2 className="text-[1.4rem] mt-4 p-2 font-semibold text-white">
+          <h2 className="text-[1.4rem] mt-4 p-2 font-semibold text-whitae">
             {title}
           </h2>
-          <p className="text-[#7F8080] text-base pb-[15px] pl-[10px]">{description}</p>
+          <p className="text-[#7F8080] text-base pb-[15px] pl-[10px]">
+            {description}
+          </p>
         </div>
         <div className="mt-8 pr-3">
           <a
