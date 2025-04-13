@@ -28,15 +28,15 @@ git clone https://github.com/fahadshahbaz/OmniCraft.git
 ```
 
 ### **Install Dependencies**
-Make sure you have **npm** installed. Then, run the following:  
+Make sure you have **pnpm** installed. Then, run the following:  
 ```bash
-npm install
+pnpm install
 ```
 
 ### **Run the Development Server**
 Start the server with:  
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## **🌐 Live Demo**  
