@@ -2,28 +2,14 @@ import SearchBar from "./SearchBar.jsx";
 
 // Helper function to detect if the user is on a Mac
 const isMac = () => {
-  // Ensure this code runs only in the browser
-  if (typeof window !== "undefined" && typeof navigator !== "undefined") {
-    // Primary modern method using userAgentData (not supported in all browsers yet)
-    if (navigator.userAgentData) {
-      return navigator.userAgentData.platform === "macOS";
-    }
-
-    // Fallback method using userAgent
-    return /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
-  }
-
-  // Return a default value for server-side rendering
-  return false;
+  if (typeof window === "undefined") return false;
+  return /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
 };
 
 const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
   return (
     <div className="w-full mx-auto text-center flex justify-center items-center flex-col py-28">
       <div className="max-w-5xl flex justify-center items-center flex-col mx-auto">
-        {/* <h3 className="font-semibold text-3xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.2] sm:leading-[1.18] xl:leading-[1.16] 2xl:leading-[1.16]">
-          The Best Resources for <br /> Design and Code <br /> in One Place
-        </h3>{" "} */}
         <h3 className="font-bold text-3xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.2] sm:leading-[1.18] xl:leading-[1.16] 2xl:leading-[1.16] bg-gradient-to-r from-[#cccccc] to-[#888888] bg-clip-text text-transparent">
           The Best Resources for <br /> Design and Code <br /> in One Place
         </h3>

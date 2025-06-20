@@ -1,5 +1,6 @@
 import { FaArrowRight } from "react-icons/fa6";
 import Image from "next/image";
+import { addReferrer } from "@/utils/linkHelper";
 
 export default function Card({ img, title, description, link }) {
   return (
@@ -26,11 +27,11 @@ export default function Card({ img, title, description, link }) {
           <p className="text-[#7F8080] text-base pb-[15px] pl-[10px]">
             {description}
           </p>
-        </div>
-        <div className="mt-8 pr-3">
+        </div>        <div className="mt-8 pr-3">
           <a
-            href={link}
+            href={addReferrer(link)}
             target="_blank"
+            rel="noopener noreferrer"
             className="button rounded-full focus:outline-none text-white"
             aria-label={`Visit ${title}`}
           >
