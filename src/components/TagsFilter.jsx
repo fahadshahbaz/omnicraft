@@ -1,11 +1,11 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 
-export default function TagsFilter({ onFilterChange }) {
+export default function TagsFilter({ onFilterChange, onClearSearch }) {
   const tags = [
     "All",
     "Design", // Combined from Inspiration and Portfolio
-    "Typography", 
+    "Typography",
     "Color",
     "Components", // Combined from UI Libraries and UI
     "Tools", // For utilities
@@ -31,9 +31,12 @@ export default function TagsFilter({ onFilterChange }) {
     let newSelectedTags;
 
     if (tag === "All") {
-      // If "All" is clicked, reset to only "All"
       newSelectedTags = ["All"];
     } else {
+      // If another tag is clicked, clear the search query and show all cards with that tag
+      if (onClearSearch) {
+        onClearSearch();
+      }
       // If another tag is clicked
       if (selectedTags.includes(tag)) {
         // If the tag is already selected, deselect it and default to "All"

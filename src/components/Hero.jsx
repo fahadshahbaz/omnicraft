@@ -6,7 +6,12 @@ const isMac = () => {
   return /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
 };
 
-const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
+const Hero = ({
+  searchQuery,
+  setSearchQuery,
+  searchInputRef,
+  onSearchBarClick,
+}) => {
   return (
     <div className="w-full mx-auto text-center flex justify-center items-center flex-col py-28">
       <div className="max-w-5xl flex justify-center items-center flex-col mx-auto">
@@ -21,7 +26,8 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef }) => {
       <SearchBar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        searchInputRef={searchInputRef} // Pass the ref to the SearchBar component
+        searchInputRef={searchInputRef}
+        onSearchBarClick={onSearchBarClick}
       />
       <p className="text-xs sm:text-sm text-[#7F8080] pt-4">
         Press{" "}

@@ -27,9 +27,6 @@ function App() {
       if (event.ctrlKey || event.metaKey) {
         event.preventDefault();
         setIsSearchModalOpen(true);
-        setTimeout(() => {
-          searchInputRef.current?.focus();
-        }, 100);
       }
     }
   }, []);
@@ -40,6 +37,15 @@ function App() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
+
+  // Focus search input when modal opens
+  useEffect(() => {
+    if (isSearchModalOpen) {
+      setTimeout(() => {
+        searchInputRef.current?.focus();
+      }, 100);
+    }
+  }, [isSearchModalOpen]);
 
   // Filter data based on search query and selected tags
   const filteredData = data.filter((card) => {
@@ -70,9 +76,16 @@ function App() {
 
   return (
     <>
-      <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <Hero
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        onSearchBarClick={() => setIsSearchModalOpen(true)}
+      />
       <div ref={cardContainerRef}>
-        <TagsFilter onFilterChange={setSelectedTags} />
+        <TagsFilter
+          onFilterChange={setSelectedTags}
+          onClearSearch={() => setSearchQuery("")}
+        />
         <CardContainer>
           {filteredData.slice(0, visibleCards).map((card, index) => (
             <Card key={index} {...card} />

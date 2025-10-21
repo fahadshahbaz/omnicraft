@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
-import { RxCross1 } from "react-icons/rx";
 
 export default function SearchModal({
   isOpen,
@@ -21,8 +20,16 @@ export default function SearchModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-lg bg-zinc-800 bg-opacity-65">
-      <div className="w-[90%] sm:w-[500px] bg-[#2e2e2e] rounded-md px-6 py-3 shadow-xl flex items-center justify-center mb-64 border border-white/15">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-lg bg-zinc-900 bg-opacity-65"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="w-[90%] sm:w-[500px] bg-[#2e2e2e] rounded-full px-6 py-3 shadow-xl flex items-center justify-center mb-64 border border-white/15"
+        onClick={(e) => e.stopPropagation()}
+      >
         <form onSubmit={handleSubmit} className="w-full flex items-center">
           <IoSearch className="size-6" />
           <input
@@ -32,14 +39,9 @@ export default function SearchModal({
             onChange={(e) => setInputValue(e.target.value)}
             className="w-full border-none bg-transparent px-4 py-2 placeholder:text-white/50 text-white outline-none focus:outline-1"
             ref={searchInputRef}
+            autoFocus
           />
         </form>
-        <button
-          onClick={onClose}
-          className="absolute top-5 right-6 bg-white px-3 py-[0.7rem] rounded-full text-gray-900"
-        >
-          <RxCross1 className="size-5" />
-        </button>
       </div>
     </div>
   );
