@@ -3,7 +3,7 @@ export const addReferrer = (url, referrer = "omnicraft") => {
     const urlObj = new URL(url);
     urlObj.searchParams.set("ref", referrer);
     return urlObj.toString();
-  } catch (error) {
+  } catch {
     // If URL is invalid, return original URL
     console.warn("Invalid URL provided:", url);
     return url;

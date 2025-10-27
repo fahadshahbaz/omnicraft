@@ -4,7 +4,7 @@ import { addReferrer } from "@/utils/linkHelper";
 
 export default function Card({ img, title, description, link }) {
   return (
-    <section className="card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-2xl border border-solid border-[#3f3f3fa2] bg-gradient-to-br from-[#232323] to-[#0f0f0f]">
+    <section className="card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-2xl border border-solid border-[#3f3f3fa2] bg-linear-to-br from-[#232323] to-[#0f0f0f]">
       <Image
         className="mx-auto w-[272px] h-[200px] object-cover mt-8 rounded-lg"
         src={img}
@@ -24,15 +24,16 @@ export default function Card({ img, title, description, link }) {
           <h2 className="text-[1.4rem] mt-4 p-2 font-semibold text-whitae">
             {title}
           </h2>
-          <p className="text-[#7F8080] text-base pb-[15px] pl-[10px]">
+          <p className="text-[#7F8080] text-base pb-[15px] pl-">
             {description}
           </p>
-        </div>        <div className="mt-8 pr-3">
+        </div>{" "}
+        <div className="mt-8 pr-3">
           <a
             href={addReferrer(link)}
             target="_blank"
             rel="noopener noreferrer"
-            className="button rounded-full focus:outline-none text-white"
+            className="button rounded-full focus:outline-hidden text-white"
             aria-label={`Visit ${title}`}
           >
             <FaArrowRight />

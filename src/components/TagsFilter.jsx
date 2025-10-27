@@ -77,7 +77,7 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
             tabIndex={0}
             aria-selected={selectedTags.includes(tag)}
             className={`
-        flex-shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300
+        shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300
         ${
           selectedTags.includes(tag)
             ? "bg-[#ffffff] text-black border-transparent"

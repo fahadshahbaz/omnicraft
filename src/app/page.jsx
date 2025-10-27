@@ -17,6 +17,7 @@ function App() {
   const [visibleCards, setVisibleCards] = useState(INITIAL_CARDS);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState(["All"]);
+  const [shouldScrollToCards, setShouldScrollToCards] = useState(false);
 
   const searchInputRef = useRef(null);
   const cardContainerRef = useRef(null);
@@ -60,12 +61,17 @@ function App() {
     return matchesSearchQuery && matchesTags;
   });
 
-  // Scroll to card container when filtered data changes
+  // Scroll to card container only when explicitly triggered
   useEffect(() => {
-    if (filteredData.length > 0 && searchQuery.length > 0) {
+    if (
+      shouldScrollToCards &&
+      filteredData.length > 0 &&
+      searchQuery.length > 0
+    ) {
       cardContainerRef.current?.scrollIntoView({ behavior: "smooth" });
+      setShouldScrollToCards(false);
     }
-  }, [filteredData, searchQuery, selectedTags]);
+  }, [shouldScrollToCards, filteredData, searchQuery]);
 
   // Load more/less cards
   const loadMoreCards = () => setVisibleCards(visibleCards + INITIAL_CARDS);
@@ -73,6 +79,12 @@ function App() {
 
   // Close search modal
   const closeSearchModal = () => setIsSearchModalOpen(false);
+
+  // Handle search submission from modal
+  const handleSearchSubmit = (query) => {
+    setSearchQuery(query);
+    setShouldScrollToCards(true);
+  };
 
   return (
     <>
@@ -88,7 +100,7 @@ function App() {
         />
         <CardContainer>
           {filteredData.slice(0, visibleCards).map((card, index) => (
-            <Card key={index} {...card} />
+            <Card key={card.link} {...card} />
           ))}
         </CardContainer>
       </div>
@@ -101,7 +113,7 @@ function App() {
       <SearchModal
         isOpen={isSearchModalOpen}
         searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
+        setSearchQuery={handleSearchSubmit}
         searchInputRef={searchInputRef}
         onClose={closeSearchModal}
       />

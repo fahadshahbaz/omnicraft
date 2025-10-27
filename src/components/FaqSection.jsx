@@ -60,11 +60,13 @@ export default function FAQSection() {
                   <button
                     type="button"
                     onClick={() => toggleItem(item.id)}
-                    className="w-full flex justify-between items-center text-left focus:outline-none"
+                    className="w-full flex justify-between items-center text-left focus:outline-hidden"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${item.id}`}
                   >
-                    <h3 className="text-lg sm:text-xl font-medium">{item.title}</h3>
+                    <h3 className="text-lg sm:text-xl font-medium">
+                      {item.title}
+                    </h3>
                     <motion.div
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ duration: 0.2 }}
