@@ -8,7 +8,7 @@ export default function Card({ img, title, description, link }) {
       <Image
         className="mx-auto w-[272px] h-[200px] object-cover mt-8 rounded-lg"
         src={img}
-        width={272} // 85% of 320px card width
+        width={272}
         height={200}
         alt={`Image for ${title}`}
         draggable="false"
@@ -21,13 +21,13 @@ export default function Card({ img, title, description, link }) {
       />
       <div className="flex justify-between items-center p-4">
         <div>
-          <h2 className="text-[1.4rem] mt-4 p-2 font-semibold text-whitae">
+          <h2 className="text-[1.4rem] mt-4 p-2 font-semibold text-white">
             {title}
           </h2>
-          <p className="text-[#7F8080] text-base pb-[15px] pl-">
+          <p className="text-[#7F8080] text-base pb-[15px] pl-2">
             {description}
           </p>
-        </div>{" "}
+        </div>
         <div className="mt-8 pr-3">
           <a
             href={addReferrer(link)}

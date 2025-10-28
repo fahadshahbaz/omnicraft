@@ -20,11 +20,31 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
 
   // Check if the tags container overflows and show/hide the scroll arrow
   useEffect(() => {
+    const checkOverflow = () => {
+      const container = tagsContainerRef.current;
+      if (container) {
+        const isOverflowing = container.scrollWidth > container.clientWidth;
+        const isScrolledToEnd =
+          container.scrollLeft + container.clientWidth >=
+          container.scrollWidth - 5;
+        setShowScrollArrow(isOverflowing && !isScrolledToEnd);
+      }
+    };
+
+    checkOverflow();
+    window.addEventListener("resize", checkOverflow);
+
     const container = tagsContainerRef.current;
     if (container) {
-      const isOverflowing = container.scrollWidth > container.clientWidth;
-      setShowScrollArrow(isOverflowing);
+      container.addEventListener("scroll", checkOverflow);
     }
+
+    return () => {
+      window.removeEventListener("resize", checkOverflow);
+      if (container) {
+        container.removeEventListener("scroll", checkOverflow);
+      }
+    };
   }, [tags]);
 
   const handleTagClick = (tag) => {
@@ -62,7 +82,7 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
   };
 
   return (
-    <div className="relative w-11/12 max-w-screen-2xl mx-auto px-2 sm:px-9">
+    <div className="relative">
       <ul
         ref={tagsContainerRef}
         role="listbox"
@@ -91,25 +111,28 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
       </ul>
 
       {showScrollArrow && (
-        <button
-          onClick={() => scrollTags(200)} // Scroll 200px to the right
-          className="absolute right-0 top-[50%] transform -translate-y-1/2 p-1 rounded-full text-white opacity-75 hover:opacity-100 transition-opacity"
-          aria-label="Scroll right to view more tags" // Add a descriptive label for screen readers
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="1em"
-            height="1.2em"
-            className="bg-[#000002]"
-            aria-hidden="true" // Hide the icon from screen readers
+        <>
+          {/* Gradient fade effect */}
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none" />
+
+          {/* Scroll arrow button */}
+          <button
+            onClick={() => scrollTags(200)}
+            className="absolute right-2 top-[50%] transform -translate-y-1/2 p-2 rounded-full bg-[#1a1a1a] border border-[#2b2b2b] text-white/70 hover:text-white hover:bg-[#252525] transition-all z-10"
+            aria-label="Scroll right to view more tags"
           >
-            <path
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="16"
+              height="16"
               fill="currentColor"
-              d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
-            ></path>
-          </svg>
-        </button>
+              aria-hidden="true"
+            >
+              <path d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01z" />
+            </svg>
+          </button>
+        </>
       )}
     </div>
   );

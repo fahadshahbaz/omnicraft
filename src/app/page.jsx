@@ -8,6 +8,7 @@ import LoadMoreLessButtons from "@/components/LoadMoreLessButton";
 import SearchModal from "@/components/SearchModal";
 import TagsFilter from "@/components/TagsFilter";
 import FAQSection from "@/components/FaqSection";
+import SortDropdown from "@/components/SortDropdown";
 
 // Define a constant for the initial number of cards to display
 const INITIAL_CARDS = 8;
@@ -18,6 +19,7 @@ function App() {
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState(["All"]);
   const [shouldScrollToCards, setShouldScrollToCards] = useState(false);
+  const [sortBy, setSortBy] = useState("default");
 
   const searchInputRef = useRef(null);
   const cardContainerRef = useRef(null);
@@ -61,6 +63,18 @@ function App() {
     return matchesSearchQuery && matchesTags;
   });
 
+  // Sort filtered data
+  const sortedData = [...filteredData].sort((a, b) => {
+    switch (sortBy) {
+      case "a-z":
+        return a.title.localeCompare(b.title);
+      case "z-a":
+        return b.title.localeCompare(a.title);
+      default:
+        return 0; // Keep original order
+    }
+  });
+
   // Scroll to card container only when explicitly triggered
   useEffect(() => {
     if (
@@ -94,19 +108,28 @@ function App() {
         onSearchBarClick={() => setIsSearchModalOpen(true)}
       />
       <div ref={cardContainerRef}>
-        <TagsFilter
-          onFilterChange={setSelectedTags}
-          onClearSearch={() => setSearchQuery("")}
-        />
+        <div className="w-11/12 max-w-screen-2xl mx-auto px-2 sm:px-9 mb-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex-1 w-full sm:w-auto min-w-0">
+              <TagsFilter
+                onFilterChange={setSelectedTags}
+                onClearSearch={() => setSearchQuery("")}
+              />
+            </div>
+            <div className="w-full sm:w-auto sm:flex-shrink-0">
+              <SortDropdown onSortChange={setSortBy} currentSort={sortBy} />
+            </div>
+          </div>
+        </div>
         <CardContainer>
-          {filteredData.slice(0, visibleCards).map((card, index) => (
+          {sortedData.slice(0, visibleCards).map((card, index) => (
             <Card key={card.link} {...card} />
           ))}
         </CardContainer>
       </div>
       <LoadMoreLessButtons
         visibleCards={visibleCards}
-        filteredData={filteredData}
+        filteredData={sortedData}
         loadMoreCards={loadMoreCards}
         loadLessCards={loadLessCards}
       />
