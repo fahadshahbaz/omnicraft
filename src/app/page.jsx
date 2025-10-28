@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Hero from "@/components/Hero";
 import CardContainer from "@/components/CardContainer";
 import Card from "@/components/Card";
+import CardSkeleton from "@/components/CardSkeleton";
 import { data } from "@/data/index";
 import LoadMoreLessButtons from "@/components/LoadMoreLessButton";
 import SearchModal from "@/components/SearchModal";
@@ -20,6 +21,8 @@ function App() {
   const [selectedTags, setSelectedTags] = useState(["All"]);
   const [shouldScrollToCards, setShouldScrollToCards] = useState(false);
   const [sortBy, setSortBy] = useState("default");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const searchInputRef = useRef(null);
   const cardContainerRef = useRef(null);
@@ -40,6 +43,16 @@ function App() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
+
+  // Handle client-side mounting
+  useEffect(() => {
+    setIsMounted(true);
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Focus search input when modal opens
   useEffect(() => {
@@ -116,15 +129,19 @@ function App() {
                 onClearSearch={() => setSearchQuery("")}
               />
             </div>
-            <div className="w-full sm:w-auto sm:flex-shrink-0">
+            <div className="w-full sm:w-auto sm:shrink-0">
               <SortDropdown onSortChange={setSortBy} currentSort={sortBy} />
             </div>
           </div>
         </div>
         <CardContainer>
-          {sortedData.slice(0, visibleCards).map((card, index) => (
-            <Card key={card.link} {...card} />
-          ))}
+          {!isMounted || isLoading
+            ? Array.from({ length: INITIAL_CARDS }).map((_, index) => (
+                <CardSkeleton key={index} />
+              ))
+            : sortedData
+                .slice(0, visibleCards)
+                .map((card, index) => <Card key={card.link} {...card} />)}
         </CardContainer>
       </div>
       <LoadMoreLessButtons

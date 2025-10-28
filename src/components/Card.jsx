@@ -1,24 +1,31 @@
+"use client";
 import { FaArrowRight } from "react-icons/fa6";
 import Image from "next/image";
 import { addReferrer } from "@/utils/linkHelper";
+import { motion } from "motion/react";
 
 export default function Card({ img, title, description, link }) {
   return (
-    <section className="card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-2xl border border-solid border-[#3f3f3fa2] bg-linear-to-br from-[#232323] to-[#0f0f0f]">
-      <Image
-        className="mx-auto w-[272px] h-[200px] object-cover mt-8 rounded-lg"
-        src={img}
-        width={272}
-        height={200}
-        alt={`Image for ${title}`}
-        draggable="false"
-        style={{
-          backgroundColor: "#202225",
-          filter: "blur(10px)",
-          transition: "filter 0.3s ease-in-out",
-        }}
-        onLoad={(e) => (e.target.style.filter = "none")}
-      />
+    <motion.section
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.3 }}
+      className="card flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-2xl border border-solid border-[#3f3f3fa2] bg-linear-to-br from-[#232323] to-[#0f0f0f]"
+    >
+      <div className="mx-auto w-[272px] h-[200px] mt-8 rounded-lg bg-[#202225] overflow-hidden shrink-0">
+        <Image
+          className="w-full h-full object-cover"
+          src={img}
+          width={272}
+          height={200}
+          alt={`Image for ${title}`}
+          draggable="false"
+          priority={false}
+          loading="lazy"
+        />
+      </div>
       <div className="flex justify-between items-center p-4">
         <div>
           <h2 className="text-[1.4rem] mt-4 p-2 font-semibold text-white">
@@ -40,6 +47,6 @@ export default function Card({ img, title, description, link }) {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
