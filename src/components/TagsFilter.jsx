@@ -8,6 +8,7 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
     "Typography",
     "Color",
     "Components", // Combined from UI Libraries and UI
+    "Shadcn", // For shadcn-based libraries
     "Tools", // For utilities
     "Resources", // For learning materials
     "AI", // For AI tools
