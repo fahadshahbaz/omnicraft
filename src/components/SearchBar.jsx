@@ -26,12 +26,10 @@ export default function SearchBar({
       layoutId="search-bar"
       className="flex justify-center bg-[#0D0D0D] rounded-full mt-8 border border-[#2b2b2b] cursor-pointer"
       onClick={handleInputClick}
-      whileHover={{ scale: 1.02 }}
       transition={{
-        type: "spring",
-        damping: 30,
-        stiffness: 200,
-        mass: 0.8,
+        type: "tween",
+        ease: [0.22, 1, 0.36, 1],
+        duration: 0.36,
       }}
     >
       <form onSubmit={handleSubmit} className="w-full flex">

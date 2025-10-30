@@ -57,13 +57,20 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const isProd = process.env.NODE_ENV === "production";
+  const isVercel = process.env.VERCEL === "1";
+  const showAnalytics = isProd && isVercel;
+
   return (
     <html lang="en" className={inter.className}>
       <head></head>
       <body className={inter.className}>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Navbar />
-        {children}
-        <Analytics />
+        <main id="main-content">{children}</main>
+        {showAnalytics && <Analytics />}
         <Footer />
       </body>
     </html>

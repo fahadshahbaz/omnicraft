@@ -118,3 +118,21 @@ body {
 /* .para-text{
   font-size: clamp(0.80rem, 0.90rem, 1.5rem);
 } */
+
+/* Skip link styles for accessibility */
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-200%);
+    background-color: #111;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    z-index: 10000;
+    border-radius: 0 0 4px 0;
+}
+.skip-link:focus,
+.skip-link:active {
+    transform: translateY(0);
+    outline: 2px solid #fff;
+}

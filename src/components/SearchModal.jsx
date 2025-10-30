@@ -37,33 +37,24 @@ export default function SearchModal({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
+            transition={{
+              type: "tween",
+              ease: [0.22, 1, 0.36, 1],
+              duration: 0.42,
+            }}
           />
 
           {/* Modal Content */}
           <motion.div
             layoutId="search-bar"
             className="relative w-[90%] sm:w-[500px] bg-[#2e2e2e] rounded-full px-6 py-3 shadow-xl flex items-center justify-center mb-64 border border-white/15"
-            initial={{
-              scale: 0.8,
-              y: 100,
-              opacity: 0,
-            }}
-            animate={{
-              scale: 1,
-              y: 0,
-              opacity: 1,
-            }}
-            exit={{
-              scale: 0.8,
-              y: 100,
-              opacity: 0,
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{
-              type: "spring",
-              damping: 28,
-              stiffness: 250,
-              mass: 0.7,
+              type: "tween",
+              ease: [0.22, 1, 0.36, 1],
+              duration: 0.36,
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -71,7 +62,12 @@ export default function SearchModal({
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.1, duration: 0.25 }}
+                transition={{
+                  delay: 0.12,
+                  type: "tween",
+                  ease: [0.22, 1, 0.36, 1],
+                  duration: 0.36,
+                }}
               >
                 <IoSearch className="size-6" />
               </motion.div>
@@ -85,7 +81,12 @@ export default function SearchModal({
                 autoFocus
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.12, duration: 0.25 }}
+                transition={{
+                  delay: 0.18,
+                  type: "tween",
+                  ease: [0.22, 1, 0.36, 1],
+                  duration: 0.42,
+                }}
               />
             </form>
           </motion.div>

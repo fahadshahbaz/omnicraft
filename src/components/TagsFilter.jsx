@@ -86,7 +86,7 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
     <div className="relative">
       <ul
         ref={tagsContainerRef}
-        role="listbox"
+        role="list"
         className="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar"
         aria-label="Filter Tags"
       >
@@ -94,11 +94,17 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
           <li
             key={tag}
             onClick={() => handleTagClick(tag)}
-            role="option"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleTagClick(tag);
+              }
+            }}
+            role="button"
             tabIndex={0}
-            aria-selected={selectedTags.includes(tag)}
+            aria-pressed={selectedTags.includes(tag)}
             className={`
-        shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300
+        shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d]
         ${
           selectedTags.includes(tag)
             ? "bg-[#ffffff] text-black border-transparent"
