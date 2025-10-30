@@ -86,33 +86,32 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
     <div className="relative">
       <ul
         ref={tagsContainerRef}
-        role="list"
         className="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar"
         aria-label="Filter Tags"
       >
         {tags.map((tag) => (
-          <li
-            key={tag}
-            onClick={() => handleTagClick(tag)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                handleTagClick(tag);
-              }
-            }}
-            role="button"
-            tabIndex={0}
-            aria-pressed={selectedTags.includes(tag)}
-            className={`
-        shrink-0 rounded-md list-none py-[0.3rem] px-6 cursor-pointer transition-all ease-in-out duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d]
+          <li key={tag} className="shrink-0 rounded-md list-none">
+            <button
+              type="button"
+              onClick={() => handleTagClick(tag)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleTagClick(tag);
+                }
+              }}
+              aria-pressed={selectedTags.includes(tag)}
+              className={`
+        py-[0.3rem] px-6 rounded-md cursor-pointer transition-all ease-in-out duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d]
         ${
           selectedTags.includes(tag)
             ? "bg-[#ffffff] text-black border-transparent"
             : "text-neutral-500 hover:text-white hover:bg-[#252525]"
         }
       `}
-          >
-            {tag}
+            >
+              {tag}
+            </button>
           </li>
         ))}
       </ul>
