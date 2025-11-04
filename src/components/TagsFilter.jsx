@@ -34,7 +34,6 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
 
     checkOverflow();
     window.addEventListener("resize", checkOverflow);
-
     const container = tagsContainerRef.current;
     if (container) {
       container.addEventListener("scroll", checkOverflow);
