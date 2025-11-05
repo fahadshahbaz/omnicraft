@@ -17,10 +17,18 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
 
   const [selectedTags, setSelectedTags] = useState(["All"]);
   const [showScrollArrow, setShowScrollArrow] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const tagsContainerRef = useRef(null);
+
+  // Set mounted state
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Check if the tags container overflows and show/hide the scroll arrow
   useEffect(() => {
+    if (!isMounted) return;
+
     const checkOverflow = () => {
       const container = tagsContainerRef.current;
       if (container) {
@@ -45,7 +53,7 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
         container.removeEventListener("scroll", checkOverflow);
       }
     };
-  }, [tags]);
+  }, [tags, isMounted]);
 
   const handleTagClick = (tag) => {
     let newSelectedTags;

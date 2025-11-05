@@ -7,7 +7,7 @@ const Hero = ({
   searchInputRef,
   onSearchBarClick,
 }) => {
-  const [metaKey, setMetaKey] = useState("Ctrl");
+  const [metaKey, setMetaKey] = useState(null);
 
   useEffect(() => {
     if (
@@ -36,13 +36,15 @@ const Hero = ({
         searchInputRef={searchInputRef}
         onSearchBarClick={onSearchBarClick}
       />
-      <p className="text-xs sm:text-sm text-[#7F8080] pt-4">
-        Press{" "}
-        <kbd className="px-2 py-1 text-[#c9c9c9] bg-[#2b2b2b] rounded">
-          {metaKey}
-        </kbd>{" "}
-        + K to open search
-      </p>
+      {metaKey && (
+        <p className="text-xs sm:text-sm text-[#7F8080] pt-4">
+          Press{" "}
+          <kbd className="px-2 py-1 text-[#c9c9c9] bg-[#2b2b2b] rounded">
+            {metaKey}
+          </kbd>{" "}
+          + K to open search
+        </p>
+      )}
     </div>
   );
 };

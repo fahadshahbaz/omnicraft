@@ -6,6 +6,7 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata = {
@@ -62,9 +63,9 @@ export default function RootLayout({ children }) {
   const showAnalytics = isProd && isVercel;
 
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={inter.variable}>
       <head></head>
-      <body className={inter.className}>
+      <body>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

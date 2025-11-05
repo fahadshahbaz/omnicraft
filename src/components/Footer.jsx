@@ -28,7 +28,7 @@ export default function Footer() {
               className="inline-block hover:opacity-80 transition-opacity"
             >
               <img
-                src="https://www.uneed.best/EMBED3B.png"
+                src="https://www.uneed.best/EMBED1B.png"
                 alt="Uneed Embed Badge"
                 style={{ height: "50px", width: "auto" }}
               />
