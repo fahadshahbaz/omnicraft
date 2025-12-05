@@ -44,36 +44,59 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-16 px-6 md:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+    <section id="faq" className="py-20 px-6 md:px-8 lg:px-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
         <div className="md:col-span-4 lg:col-span-5">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
             Frequently asked questions
           </h2>
+          <p className="mt-4 text-neutral-400 text-lg leading-relaxed">
+            Everything you need to know about the platform.
+          </p>
         </div>
         <div className="md:col-span-8 lg:col-span-7">
           <div className="space-y-4">
             {items.map((item) => {
               const isOpen = openItem === item.id;
               return (
-                <div key={item.id} className="rounded-xl bg-[#1c1c1c] p-6">
+                <motion.div
+                  key={item.id}
+                  initial={false}
+                  animate={{
+                    backgroundColor: isOpen ? "#1c1c1c" : "#1a1a1a",
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="rounded-2xl border border-[#2b2b2b] overflow-hidden hover:border-[#3a3a3a] transition-colors duration-300"
+                >
                   <button
                     type="button"
                     onClick={() => toggleItem(item.id)}
-                    className="w-full flex justify-between items-center text-left focus:outline-hidden"
+                    className="w-full flex justify-between items-start gap-6 text-left px-6 py-5 focus:outline-none group"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${item.id}`}
                   >
-                    <h3 className="text-lg sm:text-xl font-medium">
+                    <h3 className={`text-lg font-medium transition-colors duration-200 ${isOpen
+                        ? 'text-white'
+                        : 'text-neutral-300 group-hover:text-white'
+                      }`}>
                       {item.title}
                     </h3>
                     <motion.div
-                      animate={{ rotate: isOpen ? 45 : 0 }}
-                      transition={{ duration: 0.2 }}
+                      animate={{
+                        rotate: isOpen ? 45 : 0,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.4, 0.0, 0.2, 1]
+                      }}
+                      className={`shrink-0 mt-0.5 transition-colors duration-200 ${isOpen
+                          ? 'text-neutral-400'
+                          : 'text-neutral-500 group-hover:text-neutral-400'
+                        }`}
                     >
                       <FaPlus
                         size={18}
-                        className="pointer-events-none shrink-0 opacity-60"
+                        className="pointer-events-none"
                         aria-hidden="true"
                       />
                     </motion.div>
@@ -85,14 +108,22 @@ export default function FAQSection() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
+                        transition={{
+                          duration: 0.3,
+                          ease: [0.4, 0.0, 0.2, 1]
+                        }}
                         className="overflow-hidden"
                       >
-                        <p className="py-4 text-neutral-400">{item.content}</p>
+                        <div className="px-6 pb-5 pt-1">
+                          <div className="h-px bg-gradient-to-r from-[#2b2b2b] via-[#3a3a3a] to-[#2b2b2b] mb-4" />
+                          <p className="text-neutral-400 leading-relaxed text-[15px]">
+                            {item.content}
+                          </p>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               );
             })}
           </div>
