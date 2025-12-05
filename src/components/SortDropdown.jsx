@@ -68,11 +68,10 @@ export default function SortDropdown({ onSortChange, currentSort }) {
               <button
                 key={option.id}
                 onClick={() => handleSortSelect(option.id)}
-                className={`w-full flex items-center justify-between px-4 py-3 text-left transition-colors ${
-                  currentSort === option.id
+                className={`w-full flex items-center justify-between px-4 py-3 text-left transition-colors ${currentSort === option.id
                     ? "bg-[#1a1a1a] text-white"
                     : "text-white/70 hover:bg-[#1a1a1a] hover:text-white"
-                }`}
+                  }`}
               >
                 <span className="text-sm">{option.label}</span>
                 {currentSort === option.id && (

@@ -2,11 +2,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 
-export default function SearchBar({
-  setSearchQuery,
-  searchInputRef,
-  onSearchBarClick,
-}) {
+export default function SearchBar({ setSearchQuery, onSearchBarClick }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
