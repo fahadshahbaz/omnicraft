@@ -108,7 +108,15 @@ export default function Footer() {
             © {currentYear} Omnicraft. All rights reserved.
           </p>
           <p className="text-[#7F8080] text-sm">
-            Made with ❤️ for designers and developers
+            Made with ❤️ by{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.fahadshahbaz.me"
+              className="hover:text-white transition-colors underline"
+            >
+              Fahad
+            </a>
           </p>
         </div>
       </div>
