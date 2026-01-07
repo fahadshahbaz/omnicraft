@@ -51,12 +51,12 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://forms.gle/wGoTwG7tz6u1U5zt7"
+                  href="https://tally.so/r/b5jyk1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#7F8080] hover:text-white transition-colors text-base"
                 >
-                  Feedback
+                  Submit a Resource
                 </a>
               </li>
             </ul>

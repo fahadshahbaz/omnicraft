@@ -27,13 +27,13 @@ export default function Navbar() {
             FAQ
           </a>
           <a
-            href="https://forms.gle/wGoTwG7tz6u1U5zt7"
+            href="https://tally.so/r/b5jyk1"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Submit feedback"
+            aria-label="Submit a resource"
             className="flex justify-center items-center bg-[#131313] border border-[#2b2b2b] text-sm sm:text-base px-5 sm:px-7 py-[0.6rem] sm:py-[0.9rem] rounded-full font-semibold hover:bg-gray-300 hover:text-[#232323] duration-300 transition-all linear cursor-pointer"
           >
-            Feedback
+            Submit
           </a>
         </div>
       </nav>
