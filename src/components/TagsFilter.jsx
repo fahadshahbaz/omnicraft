@@ -17,44 +17,45 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
   ];
 
   const [selectedTags, setSelectedTags] = useState(["All"]);
-  const [showScrollArrow, setShowScrollArrow] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [scrollState, setScrollState] = useState({
+    canScrollLeft: false,
+    canScrollRight: false,
+  });
   const tagsContainerRef = useRef(null);
-
-  // Set mounted state
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   // Check if the tags container overflows and show/hide the scroll arrow
   useEffect(() => {
-    if (!isMounted) return;
+    const container = tagsContainerRef.current;
+    if (!container) return;
 
-    const checkOverflow = () => {
-      const container = tagsContainerRef.current;
-      if (container) {
-        const isOverflowing = container.scrollWidth > container.clientWidth;
-        const isScrolledToEnd =
-          container.scrollLeft + container.clientWidth >=
+    const updateScrollState = () => {
+      const isOverflowing = container.scrollWidth > container.clientWidth;
+      const canScrollRight =
+        isOverflowing &&
+        container.scrollLeft + container.clientWidth <
           container.scrollWidth - 5;
-        setShowScrollArrow(isOverflowing && !isScrolledToEnd);
-      }
+      const canScrollLeft = isOverflowing && container.scrollLeft > 5;
+
+      setScrollState((prev) => {
+        if (
+          prev.canScrollLeft === canScrollLeft &&
+          prev.canScrollRight === canScrollRight
+        ) {
+          return prev;
+        }
+        return { canScrollLeft, canScrollRight };
+      });
     };
 
-    checkOverflow();
-    window.addEventListener("resize", checkOverflow);
-    const container = tagsContainerRef.current;
-    if (container) {
-      container.addEventListener("scroll", checkOverflow);
-    }
+    updateScrollState();
+    window.addEventListener("resize", updateScrollState);
+    container.addEventListener("scroll", updateScrollState);
 
     return () => {
-      window.removeEventListener("resize", checkOverflow);
-      if (container) {
-        container.removeEventListener("scroll", checkOverflow);
-      }
+      window.removeEventListener("resize", updateScrollState);
+      container.removeEventListener("scroll", updateScrollState);
     };
-  }, [tags, isMounted]);
+  }, [tags.length]);
 
   const handleTagClick = (tag) => {
     let newSelectedTags;
@@ -111,10 +112,11 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
               aria-pressed={selectedTags.includes(tag)}
               className={`
         py-[0.3rem] px-6 rounded-md cursor-pointer transition-all ease-in-out duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d]
-        ${selectedTags.includes(tag)
-                  ? "bg-[#ffffff] text-black border-transparent"
-                  : "text-neutral-500 hover:text-white hover:bg-[#252525]"
-                }
+        ${
+          selectedTags.includes(tag)
+            ? "bg-[#ffffff] text-black border-transparent"
+            : "text-neutral-500 hover:text-white hover:bg-[#252525]"
+        }
       `}
             >
               {tag}
@@ -123,28 +125,53 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
         ))}
       </ul>
 
-      {showScrollArrow && (
+      {(scrollState.canScrollRight || scrollState.canScrollLeft) && (
         <>
-          {/* Gradient fade effect */}
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none" />
+          {/* Gradient fade effects */}
+          {scrollState.canScrollRight && (
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none" />
+          )}
+          {scrollState.canScrollLeft && (
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none" />
+          )}
 
-          {/* Scroll arrow button */}
-          <button
-            onClick={() => scrollTags(200)}
-            className="absolute right-2 top-[50%] transform -translate-y-1/2 p-2 rounded-full bg-[#1a1a1a] border border-[#2b2b2b] text-white/70 hover:text-white hover:bg-[#252525] transition-all z-10"
-            aria-label="Scroll right to view more tags"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="16"
-              height="16"
-              fill="currentColor"
-              aria-hidden="true"
+          {/* Scroll arrow buttons */}
+          {scrollState.canScrollLeft && (
+            <button
+              onClick={() => scrollTags(-200)}
+              className="absolute left-2 top-[50%] transform -translate-y-1/2 p-2 rounded-full bg-[#1a1a1a] border border-[#2b2b2b] text-white/70 hover:text-white hover:bg-[#252525] transition-all z-10"
+              aria-label="Scroll left to view previous tags"
             >
-              <path d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01z" />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M14.71 17.29a.996.996 0 0 1-1.41 0L8.71 12.7a.996.996 0 0 1 0-1.41l4.59-4.59a.996.996 0 1 1 1.41 1.41L10.83 12l3.88 3.88a.996.996 0 0 1 0 1.41z" />
+              </svg>
+            </button>
+          )}
+          {scrollState.canScrollRight && (
+            <button
+              onClick={() => scrollTags(200)}
+              className="absolute right-2 top-[50%] transform -translate-y-1/2 p-2 rounded-full bg-[#1a1a1a] border border-[#2b2b2b] text-white/70 hover:text-white hover:bg-[#252525] transition-all z-10"
+              aria-label="Scroll right to view more tags"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01z" />
+              </svg>
+            </button>
+          )}
         </>
       )}
     </div>
