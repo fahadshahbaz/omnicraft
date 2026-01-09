@@ -37,9 +37,6 @@ export default function Navbar() {
           </a>
         </div>
       </nav>
-      {/* <div className="flex justify-center items-center">
-        <div className="w-full h-[1px] bg-[#212223]" />
-      </div> */}
     </header>
   );
 }

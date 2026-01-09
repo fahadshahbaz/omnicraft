@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { FavoritesProvider } from "@/context/FavoritesContext";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
@@ -66,14 +67,17 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.variable}>
       <head></head>
       <body>
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        <Navbar />
-        <main id="main-content">{children}</main>
-        {showAnalytics && <Analytics />}
-        <Footer />
+        <FavoritesProvider>
+          <a href="#main-content" className="skip-link">
+            Skip to main content
+          </a>
+          <Navbar />
+          <main id="main-content">{children}</main>
+          {showAnalytics && <Analytics />}
+          <Footer />
+        </FavoritesProvider>
       </body>
     </html>
   );
 }
+

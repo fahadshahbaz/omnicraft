@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 export default function TagsFilter({ onFilterChange, onClearSearch }) {
   const tags = [
     "All",
+    "Favorites", // Show user's saved tools
     "Design", // Combined from Inspiration and Portfolio
     "Typography",
     "Color",
@@ -110,11 +111,10 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
               aria-pressed={selectedTags.includes(tag)}
               className={`
         py-[0.3rem] px-6 rounded-md cursor-pointer transition-all ease-in-out duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d]
-        ${
-          selectedTags.includes(tag)
-            ? "bg-[#ffffff] text-black border-transparent"
-            : "text-neutral-500 hover:text-white hover:bg-[#252525]"
-        }
+        ${selectedTags.includes(tag)
+                  ? "bg-[#ffffff] text-black border-transparent"
+                  : "text-neutral-500 hover:text-white hover:bg-[#252525]"
+                }
       `}
             >
               {tag}

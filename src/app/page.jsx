@@ -10,6 +10,7 @@ import SearchModal from "@/components/SearchModal";
 import TagsFilter from "@/components/TagsFilter";
 import FAQSection from "@/components/FaqSection";
 import SortDropdown from "@/components/SortDropdown";
+import { useFavorites } from "@/context/FavoritesContext";
 
 // Define a constant for the initial number of cards to display
 const INITIAL_CARDS = 8;
@@ -26,6 +27,8 @@ function App() {
 
   const searchInputRef = useRef(null);
   const cardContainerRef = useRef(null);
+
+  const { favorites, isHydrated } = useFavorites();
 
   // Handle keydown event for search modal
   const handleKeyDown = useCallback((event) => {
@@ -65,6 +68,11 @@ function App() {
 
   // Filter data based on search query and selected tags
   const filteredData = data.filter((card) => {
+    // Special handling for Favorites filter
+    if (selectedTags.includes("Favorites")) {
+      return favorites.includes(card.link);
+    }
+
     const matchesSearchQuery =
       card.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       card.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -137,9 +145,18 @@ function App() {
         <CardContainer>
           {!isMounted || isLoading
             ? Array.from({ length: INITIAL_CARDS }).map((_, index) => (
-                <CardSkeleton key={index} />
-              ))
-            : sortedData
+              <CardSkeleton key={index} />
+            ))
+            : sortedData.length === 0 && selectedTags.includes("Favorites")
+              ? (
+                <div className="col-span-full flex flex-col items-center justify-center py-16 text-center">
+                  <h3 className="text-xl font-semibold text-white mb-2">No saved tools yet</h3>
+                  <p className="text-[#7F8080] max-w-md">
+                    Click the heart icon on any resource card to save it here for quick access.
+                  </p>
+                </div>
+              )
+              : sortedData
                 .slice(0, visibleCards)
                 .map((card, index) => <Card key={card.link} {...card} />)}
         </CardContainer>
