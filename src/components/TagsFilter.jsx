@@ -8,6 +8,7 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
     "Design", // Combined from Inspiration and Portfolio
     "Typography",
     "Color",
+    "Illustrations",
     "Components", // Combined from UI Libraries and UI
     "Shadcn", // For shadcn-based libraries
     "Tools", // For utilities
@@ -33,7 +34,7 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
       const canScrollRight =
         isOverflowing &&
         container.scrollLeft + container.clientWidth <
-          container.scrollWidth - 5;
+        container.scrollWidth - 5;
       const canScrollLeft = isOverflowing && container.scrollLeft > 5;
 
       setScrollState((prev) => {
@@ -112,11 +113,10 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
               aria-pressed={selectedTags.includes(tag)}
               className={`
         py-[0.3rem] px-6 rounded-md cursor-pointer transition-all ease-in-out duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d]
-        ${
-          selectedTags.includes(tag)
-            ? "bg-[#ffffff] text-black border-transparent"
-            : "text-neutral-500 hover:text-white hover:bg-[#252525]"
-        }
+        ${selectedTags.includes(tag)
+                  ? "bg-[#ffffff] text-black border-transparent"
+                  : "text-neutral-500 hover:text-white hover:bg-[#252525]"
+                }
       `}
             >
               {tag}
