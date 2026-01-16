@@ -112,7 +112,7 @@ export default function Footer() {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.fahadshahbaz.me"
+              href="https://www.fahadshahbaz.dev"
               className="hover:text-white transition-colors underline"
             >
               Fahad
