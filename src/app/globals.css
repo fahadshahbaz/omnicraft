@@ -4,6 +4,16 @@ html {
     scroll-behavior: smooth;
 }
 
+::selection {
+    background-color: #ff3d00;
+    color: white;
+}
+
+::-moz-selection {
+    background-color: #ff3d00;
+    color: white;
+}
+
 body {
     /* background-color: #121212; */
     font-family: var(--font-inter), "Open Sans", sans-serif;
