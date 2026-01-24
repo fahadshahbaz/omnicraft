@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import CardContainer from "@/components/CardContainer";
 import Card from "@/components/Card";
 import CardSkeleton from "@/components/CardSkeleton";
-import { data } from "@/data/index";
+import { supabase } from "@/utils/supabase";
 import LoadMoreLessButtons from "@/components/LoadMoreLessButton";
 import SearchModal from "@/components/SearchModal";
 import TagsFilter from "@/components/TagsFilter";
@@ -22,13 +22,14 @@ function App() {
   const [selectedTags, setSelectedTags] = useState(["All"]);
   const [shouldScrollToCards, setShouldScrollToCards] = useState(false);
   const [sortBy, setSortBy] = useState("default");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
+  const [allResources, setAllResources] = useState([]);
 
   const searchInputRef = useRef(null);
   const cardContainerRef = useRef(null);
 
-  const { favorites, isHydrated } = useFavorites();
+  const { favorites } = useFavorites();
 
   // Handle keydown event for search modal
   const handleKeyDown = useCallback((event) => {
@@ -47,14 +48,26 @@ function App() {
     };
   }, [handleKeyDown]);
 
-  // Handle client-side mounting
+  // Handle client-side mounting and data fetching
   useEffect(() => {
     setIsMounted(true);
-    setIsLoading(true);
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-    return () => clearTimeout(timer);
+    const fetchResources = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("resources")
+          .select("*")
+          .order("id", { ascending: true });
+
+        if (error) throw error;
+        setAllResources(data || []);
+      } catch (error) {
+        console.error("Error fetching resources:", error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchResources();
   }, []);
 
   // Focus search input when modal opens
@@ -67,7 +80,7 @@ function App() {
   }, [isSearchModalOpen]);
 
   // Filter data based on search query and selected tags
-  const filteredData = data.filter((card) => {
+  const filteredData = allResources.filter((card) => {
     // Special handling for Favorites filter
     if (selectedTags.includes("Favorites")) {
       return favorites.includes(card.link);
@@ -79,7 +92,7 @@ function App() {
 
     const matchesTags =
       selectedTags.includes("All") ||
-      selectedTags.some((tag) => card.tags.includes(tag));
+      selectedTags.some((tag) => card.tags && card.tags.includes(tag));
 
     return matchesSearchQuery && matchesTags;
   });
@@ -143,22 +156,25 @@ function App() {
           </div>
         </div>
         <CardContainer>
-          {!isMounted || isLoading
-            ? Array.from({ length: INITIAL_CARDS }).map((_, index) => (
+          {!isMounted || isLoading ? (
+            Array.from({ length: INITIAL_CARDS }).map((_, index) => (
               <CardSkeleton key={index} />
             ))
-            : sortedData.length === 0 && selectedTags.includes("Favorites")
-              ? (
-                <div className="col-span-full flex flex-col items-center justify-center py-16 text-center">
-                  <h3 className="text-xl font-semibold text-white mb-2">No saved tools yet</h3>
-                  <p className="text-[#7F8080] max-w-md">
-                    Click the heart icon on any resource card to save it here for quick access.
-                  </p>
-                </div>
-              )
-              : sortedData
-                .slice(0, visibleCards)
-                .map((card, index) => <Card key={card.link} {...card} />)}
+          ) : sortedData.length === 0 && selectedTags.includes("Favorites") ? (
+            <div className="col-span-full flex flex-col items-center justify-center py-16 text-center">
+              <h3 className="text-xl font-semibold text-white mb-2">
+                No saved tools yet
+              </h3>
+              <p className="text-[#7F8080] max-w-md">
+                Click the heart icon on any resource card to save it here for
+                quick access.
+              </p>
+            </div>
+          ) : (
+            sortedData
+              .slice(0, visibleCards)
+              .map((card, index) => <Card key={card.link} {...card} />)
+          )}
         </CardContainer>
       </div>
       <LoadMoreLessButtons
