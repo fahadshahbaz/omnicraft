@@ -39,7 +39,7 @@ pnpm install
 
 ### **Environment Variables**
 
-Create a `.env.local` file in the root directory and add your Supabase credentials (see `env.example`):
+Create a `.env.local` file in the root directory and add your Supabase credentials (see `.env.example`):
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url

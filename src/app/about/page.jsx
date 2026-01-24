@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import dp from "@/assets/dp.png";
 import {
   FaSearch,
   FaHeart,
@@ -34,6 +33,9 @@ const features = [
 ];
 
 export default function AboutPage() {
+  const dpUrl =
+    "https://res.cloudinary.com/dgughuyuo/image/upload/v1769276695/dp_xkms9k.png";
+
   return (
     <article className="min-h-screen max-w-3xl mx-auto px-6 py-16 sm:py-24">
       {/* Title */}
@@ -47,12 +49,11 @@ export default function AboutPage() {
       <div className="flex items-center gap-4 mt-8 mb-12">
         <div className="w-12 h-12 rounded-full overflow-hidden bg-linear-to-br from-[#3a3a3a] to-[#2b2b2b] flex items-center justify-center text-lg font-semibold text-white">
           <Image
-            src={dp}
+            src={dpUrl}
             alt="Fahad Shahbaz"
             width={144}
             height={144}
             priority
-            unoptimized
             className="w-full h-full object-cover scale-125"
           />
         </div>
