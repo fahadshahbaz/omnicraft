@@ -141,21 +141,6 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
-
-      {/* CTA */}
-      <div className="mt-16 text-center">
-        <div className="h-px bg-linear-to-r from-transparent via-[#2b2b2b] to-transparent mb-12" />
-        <p className="text-neutral-400 mb-6">
-          Ready to explore the collection?
-        </p>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 bg-[#FF3D00] hover:bg-[#e63600] text-black font-medium px-6 py-3 rounded-full transition-all duration-300 text-sm shadow-[0_8px_20px_4px_rgba(255,58,0,0.3)] hover:scale-105"
-        >
-          Start Exploring
-          <FaArrowRight className="text-xs" />
-        </Link>
-      </div>
     </article>
   );
 }

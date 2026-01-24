@@ -10,6 +10,7 @@
     "format": "biome format --write ."
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.91.1",
     "@vercel/analytics": "^1.6.1",
     "motion": "^12.23.25",
     "next": "16.0.10",
