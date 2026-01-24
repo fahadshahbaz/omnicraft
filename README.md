@@ -11,7 +11,7 @@ Omnicraft is a curated resource hub designed for web designers and developers. I
 
 ## Tech Stack
 
-- **Frontend**: React.js with Next.js
+- **Frontend**: Next.js
 - **Styling**: Tailwind CSS
 - **Database**: Supabase (PostgreSQL)
 - **Hosting**: Vercel
@@ -23,43 +23,22 @@ Omnicraft was developed to solve the challenge of resource fragmentation. By con
 
 ## Getting Started
 
-### Prerequisites
-
-Ensure you have **pnpm** installed on your system.
-
-### Installation
-
-1. Clone the repository:
+1. **Clone the repository**:
 
    ```bash
    git clone https://github.com/fahadshahbaz/OmniCraft.git
    ```
 
-2. Install the necessary dependencies:
+2. **Install dependencies**:
+
    ```bash
    pnpm install
    ```
 
-### Configuration
-
-Create a `.env.local` file in the root directory and configure your Supabase credentials. Refer to `.env.example` for the required structure:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=your_supabase_anon_key
-```
-
-### Contribution & Database Setup
-
-The application fetches data from a Supabase table named `resources`. For local testing or contributions, you can reference the expected data structure in `src/data/index.sample.js`.
-
-### Development
-
-Run the development server:
-
-```bash
-pnpm dev
-```
+3. **Run the development server**:
+   ```bash
+   pnpm dev
+   ```
 
 ## Live Deployment
 
