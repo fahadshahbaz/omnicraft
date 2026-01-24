@@ -5,12 +5,12 @@ html {
 }
 
 ::selection {
-    background-color: #ff3d00;
+    background-color: rgba(255, 61, 0, 0.3);
     color: white;
 }
 
 ::-moz-selection {
-    background-color: #ff3d00;
+    background-color: rgba(255, 61, 0, 0.3);
     color: white;
 }
 
