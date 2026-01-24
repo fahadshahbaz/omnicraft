@@ -22,7 +22,7 @@ export default function Card({ img, title, description, link }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.3 }}
-      className="card relative flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-2xl border border-solid border-[#3f3f3fa2] bg-linear-to-br from-[#232323] to-[#0f0f0f]"
+      className="card relative flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-2xl border border-solid border-[#3f3f3fa2] bg-linear-to-br from-[#232323] to-[#0f0f0f] select-none"
     >
       {/* Image container with heart button inside */}
       <div className="relative mx-auto w-[272px] h-[200px] mt-8 rounded-lg bg-[#202225] overflow-hidden shrink-0">
@@ -40,7 +40,11 @@ export default function Card({ img, title, description, link }) {
         <motion.button
           onClick={handleFavoriteClick}
           disabled={!isHydrated}
-          aria-label={favorited ? `Remove ${title} from favorites` : `Add ${title} to favorites`}
+          aria-label={
+            favorited
+              ? `Remove ${title} from favorites`
+              : `Add ${title} to favorites`
+          }
           aria-pressed={favorited}
           whileTap={{ scale: 0.85 }}
           className="absolute top-2 right-2 p-2 rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 transition-colors cursor-pointer disabled:opacity-50"
