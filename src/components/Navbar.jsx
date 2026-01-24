@@ -1,5 +1,6 @@
 import gray from "@/assets/icons/gray.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -11,14 +12,20 @@ export default function Navbar() {
             alt="logo"
             className="size-7 sm:size-9 inline-block fill-[#9e9e1d]"
           />
-          <a
-            href="#home"
+          <Link
+            href="/"
             className="text-2xl sm:text-4xl font-bold cursor-pointer"
           >
             OmniCraft.
-          </a>
+          </Link>
         </div>
         <div className="flex items-center space-x-4 sm:space-x-6">
+          <Link
+            href="/about"
+            className="text-sm sm:text-base font-semibold hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
+          >
+            About
+          </Link>
           <a
             href="#faq"
             aria-label="View FAQ"
