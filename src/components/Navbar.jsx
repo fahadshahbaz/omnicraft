@@ -10,11 +10,11 @@ export default function Navbar() {
           <Image
             src={gray}
             alt="logo"
-            className="size-7 sm:size-9 inline-block fill-[#9e9e1d]"
+            className="size-7 sm:size-8 inline-block fill-[#9e9e1d]"
           />
           <Link
             href="/"
-            className="text-2xl sm:text-4xl font-bold cursor-pointer"
+            className="text-2xl sm:text-3xl font-bold cursor-pointer"
           >
             OmniCraft.
           </Link>
@@ -29,7 +29,7 @@ export default function Navbar() {
           <a
             href="#faq"
             aria-label="View FAQ"
-            className="text-sm sm:text-base font-semibold hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
+            className="hidden sm:block text-sm sm:text-base font-semibold hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
           >
             FAQ
           </a>

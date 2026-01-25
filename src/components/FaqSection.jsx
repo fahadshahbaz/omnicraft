@@ -115,7 +115,7 @@ export default function FAQSection() {
                         className="overflow-hidden"
                       >
                         <div className="px-6 pb-5 pt-1">
-                          <div className="h-px bg-gradient-to-r from-[#2b2b2b] via-[#3a3a3a] to-[#2b2b2b] mb-4" />
+                          <div className="h-px bg-linear-to-r from-[#2b2b2b] via-[#3a3a3a] to-[#2b2b2b] mb-4" />
                           <p className="text-neutral-400 leading-relaxed text-[15px]">
                             {item.content}
                           </p>
