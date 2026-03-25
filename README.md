@@ -13,7 +13,7 @@ Omnicraft is a curated resource hub designed for web designers and developers. I
 
 - **Frontend**: Next.js
 - **Styling**: Tailwind CSS
-- **Database**: Supabase (PostgreSQL)
+- **Database**: MongoDB Atlas
 - **Hosting**: Vercel
 - **Analytics**: Vercel Analytics
 

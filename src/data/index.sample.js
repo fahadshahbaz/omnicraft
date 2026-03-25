@@ -1,6 +1,6 @@
 /**
  * This is a sample data file for open-source contributors.
- * The production data is now served via Supabase.
+ * The production data is now served via MongoDB Atlas.
  * Use this structure when contributing new resources.
  */
 

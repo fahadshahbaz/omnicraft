@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import CardContainer from "@/components/CardContainer";
 import Card from "@/components/Card";
 import CardSkeleton from "@/components/CardSkeleton";
-import { supabase } from "@/utils/supabase";
 import LoadMoreLessButtons from "@/components/LoadMoreLessButton";
 import SearchModal from "@/components/SearchModal";
 import TagsFilter from "@/components/TagsFilter";
@@ -53,13 +52,10 @@ function App() {
     setIsMounted(true);
     const fetchResources = async () => {
       try {
-        const { data, error } = await supabase
-          .from("resources")
-          .select("*")
-          .order("id", { ascending: true });
-
-        if (error) throw error;
-        setAllResources(data || []);
+        const res = await fetch("/api/resources");
+        if (!res.ok) throw new Error("Failed to fetch resources");
+        const data = await res.json();
+        setAllResources(data);
       } catch (error) {
         console.error("Error fetching resources:", error.message);
       } finally {
