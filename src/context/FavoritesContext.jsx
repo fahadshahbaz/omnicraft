@@ -1,8 +1,8 @@
 "use client";
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
 
-// Storage Provider Interface - easily swap localStorage with Supabase later
-// Future: Replace with supabaseStorageProvider for authenticated users
+// Storage Provider Interface - easily swap localStorage with MongoDB later
+// Future: Replace with mongoStorageProvider for authenticated users
 const localStorageProvider = {
     getFavorites: () => {
         if (typeof window === "undefined") return [];
@@ -17,23 +17,6 @@ const localStorageProvider = {
         localStorage.setItem("omnicraft_favorites", JSON.stringify(favorites));
     },
 };
-
-// For future Supabase integration:
-// const supabaseStorageProvider = {
-//   getFavorites: async (userId) => {
-//     const { data } = await supabase
-//       .from('favorites')
-//       .select('resource_link')
-//       .eq('user_id', userId);
-//     return data?.map(row => row.resource_link) || [];
-//   },
-//   addFavorite: async (userId, resourceLink) => {
-//     await supabase.from('favorites').insert({ user_id: userId, resource_link: resourceLink });
-//   },
-//   removeFavorite: async (userId, resourceLink) => {
-//     await supabase.from('favorites').delete().eq('user_id', userId).eq('resource_link', resourceLink);
-//   },
-// };
 
 const FavoritesContext = createContext(null);
 
