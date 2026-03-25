@@ -124,9 +124,9 @@ function App() {
   // Close search modal
   const closeSearchModal = () => setIsSearchModalOpen(false);
 
-  // Handle search submission from modal
   const handleSearchSubmit = (query) => {
     setSearchQuery(query);
+    setSelectedTags(["All"]);
     setShouldScrollToCards(true);
   };
 
@@ -144,6 +144,7 @@ function App() {
               <TagsFilter
                 onFilterChange={setSelectedTags}
                 onClearSearch={() => setSearchQuery("")}
+                resetKey={selectedTags.join(",")}
               />
             </div>
             <div className="w-full sm:w-auto sm:shrink-0">

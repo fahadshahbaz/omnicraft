@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 
-export default function TagsFilter({ onFilterChange, onClearSearch }) {
+export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) {
   const tags = [
     "All",
     "Favorites", // Show user's saved tools
@@ -18,6 +18,13 @@ export default function TagsFilter({ onFilterChange, onClearSearch }) {
   ];
 
   const [selectedTags, setSelectedTags] = useState(["All"]);
+
+  // Sync internal state when parent resets the filter (e.g. on search submit)
+  useEffect(() => {
+    if (resetKey === "All") {
+      setSelectedTags(["All"]);
+    }
+  }, [resetKey]);
   const [scrollState, setScrollState] = useState({
     canScrollLeft: false,
     canScrollRight: false,
