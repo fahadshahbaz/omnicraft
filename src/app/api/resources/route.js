@@ -3,6 +3,9 @@ import clientPromise from "@/utils/mongodb";
 export async function GET() {
   try {
     const client = await clientPromise;
+    if (!client) {
+      return Response.json([]);
+    }
     const db = client.db("omnicraft");
     const resources = await db
       .collection("resources")

@@ -1,25 +1,26 @@
 import { MongoClient } from "mongodb";
 
-if (!process.env.MONGODB_URI) {
-  throw new Error(
-    "MONGODB_URI is not set. Add it to your .env.local file.",
-  );
-}
-
 const uri = process.env.MONGODB_URI;
 const options = {};
 
-let client;
 let clientPromise;
 
-if (process.env.NODE_ENV === "development") {
+if (!uri) {
+  if (process.env.NODE_ENV === "development") {
+    console.warn(
+      "MONGODB_URI is not set. Add it to your .env.local file.",
+    );
+  }
+  // Return a promise that resolves to null during build time
+  clientPromise = Promise.resolve(null);
+} else if (process.env.NODE_ENV === "development") {
   if (!global._mongoClientPromise) {
-    client = new MongoClient(uri, options);
+    const client = new MongoClient(uri, options);
     global._mongoClientPromise = client.connect();
   }
   clientPromise = global._mongoClientPromise;
 } else {
-  client = new MongoClient(uri, options);
+  const client = new MongoClient(uri, options);
   clientPromise = client.connect();
 }
 
