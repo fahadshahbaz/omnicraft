@@ -5,13 +5,13 @@ import { FaPlus } from "react-icons/fa";
 const items = [
 	{
 		id: "1",
-		title: "What resources does Omnicraft provide?",
+		title: "What resources are available?",
 		content:
 			"Omnicraft offers a curated collection of top-quality design assets, icons, UI libraries, and more to help developers and designers build projects efficiently.",
 	},
 	{
 		id: "2",
-		title: "How are the resources on Omnicraft selected?",
+		title: "How are resources selected?",
 		content:
 			"All resources are carefully handpicked to ensure the highest quality and usability, making sure you get the best tools for your projects.",
 	},
@@ -23,13 +23,13 @@ const items = [
 	},
 	{
 		id: "4",
-		title: "Can I use Omnicraft resources for commercial projects?",
+		title: "Can I use them commercially?",
 		content:
 			"Yes, most of the resources provided are free for personal and commercial use. However, it's recommended to check the specific license details of each resource.",
 	},
 	{
 		id: "5",
-		title: "How often are resources updated on Omnicraft?",
+		title: "How often are they updated?",
 		content:
 			"New resources are added whenever I am free and come across a good resource that meets the quality standards of Omnicraft.",
 	},
@@ -66,19 +66,19 @@ export default function FAQSection() {
 									<button
 										type="button"
 										onClick={() => toggleItem(item.id)}
-										className="w-full flex justify-between items-start gap-6 text-left px-6 py-5 focus:outline-none group t-acc-head"
+										className="w-full flex justify-between items-center gap-4 text-left px-4 sm:px-6 py-4 focus:outline-none group t-acc-head"
 										aria-expanded={isOpen}
 										aria-controls={`faq-answer-${item.id}`}
 									>
 										<h3
-											className={`text-lg font-medium transition-colors duration-200 ${
+											className={`text-base sm:text-lg font-medium transition-colors duration-200 ${
 												isOpen ? "text-white" : "text-neutral-300 group-hover:text-white"
 											}`}
 										>
 											{item.title}
 										</h3>
 										<div
-											className={`shrink-0 mt-0.5 t-acc-chevron transition-colors duration-200 ${
+											className={`shrink-0 t-acc-chevron transition-colors duration-200 ${
 												isOpen
 													? "text-neutral-400"
 													: "text-neutral-500 group-hover:text-neutral-400"
@@ -89,7 +89,7 @@ export default function FAQSection() {
 									</button>
 									<div className="t-acc-panel">
 										<div className="t-acc-panel-inner">
-											<div className="px-6 pb-5 pt-1">
+											<div className="px-4 sm:px-6 pb-5 pt-1">
 												<div className="h-px bg-linear-to-r from-[#2b2b2b] via-[#3a3a3a] to-[#2b2b2b] mb-4" />
 												<p className="text-neutral-400 leading-relaxed text-[15px]">
 													{item.content}

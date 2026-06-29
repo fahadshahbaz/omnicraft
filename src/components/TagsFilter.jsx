@@ -106,7 +106,7 @@ export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) 
 						}}
 						role="tab"
 						aria-selected={selectedTags.includes(tag)}
-						className={`shrink-0 py-2 px-6 rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d] transition-all duration-300 ease-out ${
+						className={`shrink-0 py-2.5 px-6 rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d] transition-all duration-300 ease-out ${
 							selectedTags.includes(tag) ? "bg-white text-black" : "bg-transparent text-neutral-500"
 						}`}
 					>

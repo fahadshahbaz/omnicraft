@@ -34,7 +34,7 @@ export default function Card({ img, title, description, link, priority = false }
 					disabled={!isHydrated}
 					aria-label={favorited ? `Remove ${title} from favorites` : `Add ${title} to favorites`}
 					aria-pressed={favorited}
-					className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 transition-colors cursor-pointer disabled:opacity-50 z-10 card-fav-btn"
+					className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 transition-colors cursor-pointer disabled:opacity-50 z-10 card-fav-btn before:absolute before:-inset-2"
 				>
 					<div className="t-icon-swap" data-state={favorited ? "b" : "a"}>
 						<div className="t-icon" data-icon="a">

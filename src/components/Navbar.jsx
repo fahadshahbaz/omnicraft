@@ -15,14 +15,14 @@ export default function Navbar() {
 				<div className="flex items-center space-x-4 sm:space-x-6">
 					<Link
 						href="/about"
-						className="text-sm sm:text-base font-semibold hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
+						className="text-sm sm:text-base font-semibold py-2 hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
 					>
 						About
 					</Link>
 					<a
 						href="#faq"
 						aria-label="View FAQ"
-						className="hidden sm:block text-sm sm:text-base font-semibold hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
+						className="hidden sm:block text-sm sm:text-base font-semibold py-2 hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
 					>
 						FAQ
 					</a>

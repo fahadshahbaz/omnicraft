@@ -61,7 +61,7 @@ export default function SortDropdown({ onSortChange, currentSort }) {
 			<button
 				type="button"
 				onClick={toggleDropdown}
-				className="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 px-4 py-2 bg-[#0D0D0D] hover:bg-[#1a1a1a] border border-[#2b2b2b] rounded-lg text-white/90 transition-colors"
+				className="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 px-4 py-2.5 bg-[#0D0D0D] hover:bg-[#1a1a1a] border border-[#2b2b2b] rounded-lg text-white/90 transition-colors"
 			>
 				<span className="text-sm">Sort: {currentOption.label}</span>
 				<div
