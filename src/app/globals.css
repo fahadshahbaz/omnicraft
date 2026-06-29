@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+	--breakpoint-xs: 410px;
+}
+
 html {
 	scroll-behavior: smooth;
 }
