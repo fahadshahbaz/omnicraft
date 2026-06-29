@@ -1,30 +1,5 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
-import { FaSearch, FaHeart, FaTags, FaRocket, FaArrowRight } from "react-icons/fa";
-
-const features = [
-	{
-		icon: FaSearch,
-		title: "Powerful Search",
-		description: "Press Ctrl+K to instantly find any resource you need.",
-	},
-	{
-		icon: FaHeart,
-		title: "Save Favorites",
-		description: "Build your personal collection for quick access later.",
-	},
-	{
-		icon: FaTags,
-		title: "Smart Categories",
-		description: "Browse by Design, Typography, Color, AI and more.",
-	},
-	{
-		icon: FaRocket,
-		title: "Always Growing",
-		description: "New handpicked resources are added on a regular basis.",
-	},
-];
 
 export default function AboutPage() {
 	const dpUrl = "https://res.cloudinary.com/dgughuyuo/image/upload/v1769276695/dp_xkms9k.png";
@@ -59,21 +34,28 @@ export default function AboutPage() {
 			{/* Divider */}
 			<div className="h-px bg-[#2b2b2b] mb-10" />
 
-			{/* Story - Paragraph 1 */}
+			{/* Story */}
 			<div className="prose prose-invert max-w-none">
+				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">Too Many Bookmarks</h2>
 				<p className="text-lg sm:text-xl text-neutral-300 leading-relaxed mb-8">
-					When I started learning frontend development, I was constantly searching for resources.
-					Websites for images, components, code snippets, everything. Whenever I came across
-					something great, I bookmarked it.
+					When I started web development, I bookmarked every good website I found. I saved links
+					for designs, images, and code snippets. Soon, I had hundreds of bookmarks.
 				</p>
 
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
-					But my bookmarks kept growing and growing. And when it was finally time to use those
-					resources? I had completely forgotten about them. Lost in the chaos.
+					But my folders became a mess. When I actually needed a resource, I could not find it.
+					I forgot they even existed.
+				</p>
+
+				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">A Better Way</h2>
+				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
+					That is why I created OmniCraft. It is a neat, organized home for the best tools.
+					Instead of messy folders, everything is clean, visual, and easy to search.
 				</p>
 
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
-					That is when I decided to build <span className="text-white font-medium">OmniCraft</span>.
+					You want to use OmniCraft because it saves you time. You do not have to waste hours
+					searching the web. I bring the best web development tools directly to you.
 				</p>
 			</div>
 
@@ -84,42 +66,35 @@ export default function AboutPage() {
 				</p>
 			</blockquote>
 
-			{/* Story - Paragraph 2 */}
-			<div>
+			{/* Curation & Quality */}
+			<div className="prose prose-invert max-w-none">
+				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">Handpicked Quality</h2>
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
-					All the resources here are handpicked. Not random stuff thrown together. Each one has been
-					carefully selected because I found it genuinely useful in my own work.
+					Every tool here is handpicked. I only add resources that I think are best for my own work.
+					You only get high-quality links that actually help you build projects.
 				</p>
 
+				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">Who Is This For?</h2>
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
-					Now I am gradually making OmniCraft more beautiful, more useful, and a place where
-					designers and developers can find exactly what they need. Welcome home.
+					This site is built for web developers, designers, and students. Whether you are building
+					your very first website or working on a professional project, you will find tools that
+					make your work easier and faster.
+				</p>
+
+				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">Taste in the AI Era</h2>
+				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
+					Today, AI can write code and build websites in seconds. But AI still lacks human taste and
+					style. OmniCraft helps you find clean designs and unique resources so you can make your
+					projects stand out.
+				</p>
+
+				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">Suggest a Resource</h2>
+				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
+					I look at new websites and tools every day. I test them myself to make sure they are fast
+					and helpful. You can also suggest resources using the Submit button in the navbar. If
+					they are good, I will add them.
 				</p>
 			</div>
-
-			{/* Divider */}
-			<div className="h-px bg-linear-to-r from-transparent via-[#2b2b2b] to-transparent my-12" />
-
-			{/* Features - Minimal Cards with equal height */}
-			<section>
-				<h2 className="text-xl sm:text-2xl font-semibold mb-6">What you can do here</h2>
-				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-					{features.map((feature) => (
-						<div
-							key={feature.title}
-							className="flex flex-col p-4 rounded-3xl bg-[#141414] shadow-border hover:shadow-border-hover transition-[box-shadow] duration-200 h-full min-h-[100px]"
-						>
-							<div className="flex items-center gap-3 mb-2">
-								<div className="shrink-0 w-8 h-8 rounded-lg bg-[#1f1f1f] flex items-center justify-center">
-									<feature.icon className="text-sm text-[#888888]" />
-								</div>
-								<h3 className="text-sm font-medium text-white">{feature.title}</h3>
-							</div>
-							<p className="text-xs text-neutral-500 leading-relaxed grow">{feature.description}</p>
-						</div>
-					))}
-				</div>
-			</section>
 		</article>
 	);
 }
