@@ -15,7 +15,7 @@ export default function Card({ img, title, description, link, priority = false }
 	};
 
 	return (
-		<section className="card group relative flex flex-col w-full max-w-[320px] h-fit p-3 pb-5 overflow-hidden rounded-2xl border border-solid border-[#3f3f3fa2] bg-linear-to-br from-[#232323] to-[#0f0f0f] select-none">
+		<section className="card group relative flex flex-col w-full max-w-[320px] h-fit p-3 pb-5 overflow-hidden rounded-2xl shadow-border hover:shadow-border-hover transition-shadow duration-200 bg-linear-to-br from-[#232323] to-[#0f0f0f] select-none">
 			{/* Image container (inset by parent padding, with rounded corners) */}
 			<div className="relative w-full h-[180px] bg-[#202225] rounded-md overflow-hidden shrink-0">
 				<Image

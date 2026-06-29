@@ -107,7 +107,7 @@ export default function AboutPage() {
 					{features.map((feature) => (
 						<div
 							key={feature.title}
-							className="flex flex-col p-4 rounded-3xl bg-[#141414] border border-[#1f1f1f] hover:border-[#2b2b2b] transition-colors duration-200 h-full min-h-[100px]"
+							className="flex flex-col p-4 rounded-3xl bg-[#141414] shadow-border hover:shadow-border-hover transition-[box-shadow] duration-200 h-full min-h-[100px]"
 						>
 							<div className="flex items-center gap-3 mb-2">
 								<div className="shrink-0 w-8 h-8 rounded-lg bg-[#1f1f1f] flex items-center justify-center">

@@ -60,7 +60,7 @@ export default function FAQSection() {
 							return (
 								<div
 									key={item.id}
-									className="t-acc rounded-2xl border border-[#2b2b2b] overflow-hidden hover:border-[#3a3a3a] transition-colors duration-300"
+									className="t-acc rounded-2xl shadow-border hover:shadow-border-hover overflow-hidden transition-[box-shadow,background-color] duration-300"
 									data-open={isOpen ? "true" : "false"}
 								>
 									<button

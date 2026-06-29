@@ -42,7 +42,7 @@ export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, on
 					{/* Modal Content */}
 					<motion.div
 						layoutId="search-bar"
-						className="relative w-[90%] sm:w-[500px] bg-[#2e2e2e] rounded-full px-6 py-3 shadow-xl flex items-center justify-center mb-64 border border-white/15"
+						className="relative w-full max-w-[420px] bg-[#2e2e2e] rounded-full px-6 py-3 shadow-xl flex items-center justify-center mb-64 shadow-border"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}

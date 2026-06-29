@@ -22,12 +22,14 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick })
 					your workflow and sharpen your skills.
 				</p>
 			</div>
-			<SearchBar
-				searchQuery={searchQuery}
-				setSearchQuery={setSearchQuery}
-				searchInputRef={searchInputRef}
-				onSearchBarClick={onSearchBarClick}
-			/>
+			<div className="w-full max-w-[420px] px-4 sm:px-0">
+				<SearchBar
+					searchQuery={searchQuery}
+					setSearchQuery={setSearchQuery}
+					searchInputRef={searchInputRef}
+					onSearchBarClick={onSearchBarClick}
+				/>
+			</div>
 			{metaKey && (
 				<p className="text-xs sm:text-sm text-[#7F8080] pt-4">
 					Press <kbd className="px-2 py-1 text-[#c9c9c9] bg-[#2b2b2b] rounded">{metaKey}</kbd> + K

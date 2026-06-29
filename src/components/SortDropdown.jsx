@@ -61,7 +61,7 @@ export default function SortDropdown({ onSortChange, currentSort }) {
 			<button
 				type="button"
 				onClick={toggleDropdown}
-				className="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 px-4 py-2.5 bg-[#0D0D0D] hover:bg-[#1a1a1a] border border-[#2b2b2b] rounded-lg text-white/90 transition-colors"
+				className="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 px-4 py-2.5 bg-[#0D0D0D] hover:bg-[#1a1a1a] shadow-border hover:shadow-border-hover rounded-lg text-white/90 transition-[colors,box-shadow] duration-200"
 			>
 				<span className="text-sm">Sort: {currentOption.label}</span>
 				<div
@@ -74,7 +74,7 @@ export default function SortDropdown({ onSortChange, currentSort }) {
 			</button>
 
 			<div
-				className={`t-dropdown absolute top-full mt-2 right-0 w-full sm:w-40 bg-[#0D0D0D] border border-[#2b2b2b] p-1 rounded-lg shadow-xl z-50 ${
+				className={`t-dropdown absolute top-full mt-2 right-0 w-full sm:w-40 bg-[#0D0D0D] shadow-border p-1 rounded-lg shadow-xl z-50 ${
 					dropdownState === "open" ? "is-open" : ""
 				} ${dropdownState === "closing" ? "is-closing" : ""}`}
 				data-origin="top-right"

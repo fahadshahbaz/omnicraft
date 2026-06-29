@@ -283,3 +283,11 @@ body {
 		transition: none !important;
 	}
 }
+
+.shadow-border {
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.shadow-border-hover:hover {
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.13);
+}
