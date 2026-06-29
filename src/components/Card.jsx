@@ -5,7 +5,7 @@ import { addReferrer } from "@/utils/linkHelper";
 import { motion, AnimatePresence } from "motion/react";
 import { useFavorites } from "@/context/FavoritesContext";
 
-export default function Card({ img, title, description, link }) {
+export default function Card({ img, title, description, link, priority = false }) {
   const { toggleFavorite, isFavorite, isHydrated } = useFavorites();
   const favorited = isFavorite(link);
 
@@ -33,8 +33,7 @@ export default function Card({ img, title, description, link }) {
           height={200}
           alt={`Image for ${title}`}
           draggable="false"
-          priority={false}
-          loading="lazy"
+          priority={priority}
         />
         {/* Favorite button inside image box - edges clipped for immersive UI */}
         <motion.button

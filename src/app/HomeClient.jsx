@@ -144,7 +144,7 @@ export default function HomeClient({ initialResources }) {
           ) : (
             sortedData
               .slice(0, visibleCards)
-              .map((card) => <Card key={card.link} {...card} />)
+              .map((card, index) => <Card key={card.link} {...card} priority={index < 4} />)
           )}
         </CardContainer>
       </div>
