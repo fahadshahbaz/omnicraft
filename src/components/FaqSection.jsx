@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
 import { FaPlus } from "react-icons/fa";
 
 const items = [
@@ -59,19 +58,15 @@ export default function FAQSection() {
             {items.map((item) => {
               const isOpen = openItem === item.id;
               return (
-                <motion.div
+                <div
                   key={item.id}
-                  initial={false}
-                  animate={{
-                    backgroundColor: isOpen ? "#1c1c1c" : "#1a1a1a",
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="rounded-2xl border border-[#2b2b2b] overflow-hidden hover:border-[#3a3a3a] transition-colors duration-300"
+                  className="t-acc rounded-2xl border border-[#2b2b2b] overflow-hidden hover:border-[#3a3a3a] transition-colors duration-300"
+                  data-open={isOpen ? "true" : "false"}
                 >
                   <button
                     type="button"
                     onClick={() => toggleItem(item.id)}
-                    className="w-full flex justify-between items-start gap-6 text-left px-6 py-5 focus:outline-none group"
+                    className="w-full flex justify-between items-start gap-6 text-left px-6 py-5 focus:outline-none group t-acc-head"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${item.id}`}
                   >
@@ -81,15 +76,8 @@ export default function FAQSection() {
                       }`}>
                       {item.title}
                     </h3>
-                    <motion.div
-                      animate={{
-                        rotate: isOpen ? 45 : 0,
-                      }}
-                      transition={{
-                        duration: 0.3,
-                        ease: [0.4, 0.0, 0.2, 1]
-                      }}
-                      className={`shrink-0 mt-0.5 transition-colors duration-200 ${isOpen
+                    <div
+                      className={`shrink-0 mt-0.5 t-acc-chevron transition-colors duration-200 ${isOpen
                           ? 'text-neutral-400'
                           : 'text-neutral-500 group-hover:text-neutral-400'
                         }`}
@@ -99,31 +87,19 @@ export default function FAQSection() {
                         className="pointer-events-none"
                         aria-hidden="true"
                       />
-                    </motion.div>
+                    </div>
                   </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={`faq-answer-${item.id}`}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{
-                          duration: 0.3,
-                          ease: [0.4, 0.0, 0.2, 1]
-                        }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-5 pt-1">
-                          <div className="h-px bg-linear-to-r from-[#2b2b2b] via-[#3a3a3a] to-[#2b2b2b] mb-4" />
-                          <p className="text-neutral-400 leading-relaxed text-[15px]">
-                            {item.content}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
+                  <div className="t-acc-panel">
+                    <div className="t-acc-panel-inner">
+                      <div className="px-6 pb-5 pt-1">
+                        <div className="h-px bg-linear-to-r from-[#2b2b2b] via-[#3a3a3a] to-[#2b2b2b] mb-4" />
+                        <p className="text-neutral-400 leading-relaxed text-[15px]">
+                          {item.content}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
