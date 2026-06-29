@@ -117,10 +117,10 @@ export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) 
 
 			{/* Gradient edge fades for scroll cues */}
 			{scrollState.canScrollRight && (
-				<div className="absolute right-0 top-0 bottom-0 w-28 bg-gradient-to-l from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none z-10" />
+				<div className="absolute right-0 top-0 bottom-0 w-28 bg-gradient-to-l from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent pointer-events-none z-10" />
 			)}
 			{scrollState.canScrollLeft && (
-				<div className="absolute left-0 top-0 bottom-0 w-28 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none z-10" />
+				<div className="absolute left-0 top-0 bottom-0 w-28 bg-gradient-to-r from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent pointer-events-none z-10" />
 			)}
 		</div>
 	);
