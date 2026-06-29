@@ -80,16 +80,6 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://x.com/fahadshahbaz_"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#7F8080] hover:text-white transition-colors text-base"
-                >
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://github.com/fahadshahbaz"
                   target="_blank"
                   rel="noopener noreferrer"
