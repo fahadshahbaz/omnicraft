@@ -31,7 +31,7 @@ export default function Navbar() {
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="Submit a resource"
-						className="flex justify-center items-center bg-[#131313] shadow-border text-sm px-5 py-2 rounded-full font-semibold hover:bg-gray-300 hover:text-[#232323] duration-300 transition-all linear cursor-pointer"
+						className="flex justify-center items-center bg-[#131313] shadow-border text-sm sm:text-base px-5 py-2 rounded-full font-semibold hover:bg-gray-300 hover:text-[#232323] duration-300 transition-all linear cursor-pointer"
 					>
 						Submit
 					</a>
