@@ -18,6 +18,12 @@ export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) 
   ];
 
   const [selectedTags, setSelectedTags] = useState(["All"]);
+  const tagsContainerRef = useRef(null);
+
+  const [scrollState, setScrollState] = useState({
+    canScrollLeft: false,
+    canScrollRight: false,
+  });
 
   // Sync internal state when parent resets the filter (e.g. on search submit)
   useEffect(() => {
@@ -25,13 +31,8 @@ export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) 
       setSelectedTags(["All"]);
     }
   }, [resetKey]);
-  const [scrollState, setScrollState] = useState({
-    canScrollLeft: false,
-    canScrollRight: false,
-  });
-  const tagsContainerRef = useRef(null);
 
-  // Check if the tags container overflows and show/hide the scroll arrow
+  // Monitor container scrolling to show/hide edge fades
   useEffect(() => {
     const container = tagsContainerRef.current;
     if (!container) return;
@@ -63,7 +64,7 @@ export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) 
       window.removeEventListener("resize", updateScrollState);
       container.removeEventListener("scroll", updateScrollState);
     };
-  }, [tags.length]);
+  }, []);
 
   const handleTagClick = (tag) => {
     let newSelectedTags;
@@ -89,97 +90,44 @@ export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) 
     onFilterChange(newSelectedTags);
   };
 
-  // Scroll the tags container horizontally
-  const scrollTags = (scrollOffset) => {
-    if (tagsContainerRef.current) {
-      tagsContainerRef.current.scrollBy({
-        left: scrollOffset,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <div className="relative">
-      <ul
+      <div
         ref={tagsContainerRef}
         className="flex gap-3 overflow-x-auto scroll-smooth hide-scrollbar"
+        role="tablist"
         aria-label="Filter Tags"
       >
         {tags.map((tag) => (
-          <li key={tag} className="shrink-0 rounded-md list-none">
-            <button
-              type="button"
-              onClick={() => handleTagClick(tag)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  handleTagClick(tag);
-                }
-              }}
-              aria-pressed={selectedTags.includes(tag)}
-              className={`
-        py-[0.3rem] px-6 rounded-md cursor-pointer transition-all ease-in-out duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d]
-        ${selectedTags.includes(tag)
-                  ? "bg-[#ffffff] text-black border-transparent"
-                  : "text-neutral-500 hover:text-white hover:bg-[#252525]"
-                }
-      `}
-            >
-              {tag}
-            </button>
-          </li>
+          <button
+            key={tag}
+            type="button"
+            onClick={() => handleTagClick(tag)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleTagClick(tag);
+              }
+            }}
+            role="tab"
+            aria-selected={selectedTags.includes(tag)}
+            className={`shrink-0 py-2 px-6 rounded-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d] transition-all duration-300 ease-out ${
+              selectedTags.includes(tag)
+                ? "bg-white text-black"
+                : "bg-transparent text-neutral-500"
+            }`}
+          >
+            {tag}
+          </button>
         ))}
-      </ul>
+      </div>
 
-      {(scrollState.canScrollRight || scrollState.canScrollLeft) && (
-        <>
-          {/* Gradient fade effects */}
-          {scrollState.canScrollRight && (
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none" />
-          )}
-          {scrollState.canScrollLeft && (
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none" />
-          )}
-
-          {/* Scroll arrow buttons */}
-          {scrollState.canScrollLeft && (
-            <button
-              onClick={() => scrollTags(-200)}
-              className="absolute left-2 top-[50%] transform -translate-y-1/2 p-2 rounded-full bg-[#1a1a1a] border border-[#2b2b2b] text-white/70 hover:text-white hover:bg-[#252525] transition-all z-10"
-              aria-label="Scroll left to view previous tags"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M14.71 17.29a.996.996 0 0 1-1.41 0L8.71 12.7a.996.996 0 0 1 0-1.41l4.59-4.59a.996.996 0 1 1 1.41 1.41L10.83 12l3.88 3.88a.996.996 0 0 1 0 1.41z" />
-              </svg>
-            </button>
-          )}
-          {scrollState.canScrollRight && (
-            <button
-              onClick={() => scrollTags(200)}
-              className="absolute right-2 top-[50%] transform -translate-y-1/2 p-2 rounded-full bg-[#1a1a1a] border border-[#2b2b2b] text-white/70 hover:text-white hover:bg-[#252525] transition-all z-10"
-              aria-label="Scroll right to view more tags"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01z" />
-              </svg>
-            </button>
-          )}
-        </>
+      {/* Gradient edge fades for scroll cues */}
+      {scrollState.canScrollRight && (
+        <div className="absolute right-0 top-0 bottom-0 w-28 bg-gradient-to-l from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none z-10" />
+      )}
+      {scrollState.canScrollLeft && (
+        <div className="absolute left-0 top-0 bottom-0 w-28 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none z-10" />
       )}
     </div>
   );

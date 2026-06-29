@@ -2,7 +2,6 @@
 import { FaArrowRight, FaHeart, FaRegHeart } from "react-icons/fa6";
 import Image from "next/image";
 import { addReferrer } from "@/utils/linkHelper";
-import { motion, AnimatePresence } from "motion/react";
 import { useFavorites } from "@/context/FavoritesContext";
 
 export default function Card({ img, title, description, link, priority = false }) {
@@ -16,12 +15,7 @@ export default function Card({ img, title, description, link, priority = false }
   };
 
   return (
-    <motion.section
-      layout
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3 }}
+    <section
       className="card relative flex flex-col w-full max-w-[320px] h-[400px] overflow-hidden rounded-2xl border border-solid border-[#3f3f3fa2] bg-linear-to-br from-[#232323] to-[#0f0f0f] select-none"
     >
       {/* Image container with heart button inside */}
@@ -35,8 +29,9 @@ export default function Card({ img, title, description, link, priority = false }
           draggable="false"
           priority={priority}
         />
-        {/* Favorite button inside image box - edges clipped for immersive UI */}
-        <motion.button
+        {/* Favorite button inside image box */}
+        <button
+          type="button"
           onClick={handleFavoriteClick}
           disabled={!isHydrated}
           aria-label={
@@ -45,33 +40,17 @@ export default function Card({ img, title, description, link, priority = false }
               : `Add ${title} to favorites`
           }
           aria-pressed={favorited}
-          whileTap={{ scale: 0.85 }}
-          className="absolute top-2 right-2 p-2 rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 transition-colors cursor-pointer disabled:opacity-50"
+          className="absolute top-2 right-2 w-9 h-9 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 transition-colors cursor-pointer disabled:opacity-50 z-10 card-fav-btn"
         >
-          <AnimatePresence mode="wait" initial={false}>
-            {favorited ? (
-              <motion.div
-                key="filled"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0 }}
-                transition={{ duration: 0.15 }}
-              >
-                <FaHeart className="text-[#FF3D00] text-lg" />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="outline"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0 }}
-                transition={{ duration: 0.15 }}
-              >
-                <FaRegHeart className="text-white/60 hover:text-white text-lg transition-colors" />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.button>
+          <div className="t-icon-swap" data-state={favorited ? "b" : "a"}>
+            <div className="t-icon" data-icon="a">
+              <FaRegHeart className="text-white/60 hover:text-white text-lg transition-colors" />
+            </div>
+            <div className="t-icon" data-icon="b">
+              <FaHeart className="text-[#FF3D00] text-lg" />
+            </div>
+          </div>
+        </button>
       </div>
       <div className="flex justify-between items-center p-4">
         <div>
@@ -94,6 +73,6 @@ export default function Card({ img, title, description, link, priority = false }
           </a>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
