@@ -14,7 +14,7 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick })
 	return (
 		<div className="w-full mx-auto text-center flex justify-center items-center flex-col py-28">
 			<div className="max-w-5xl flex justify-center items-center flex-col mx-auto">
-				<h1 className="font-bold text-3xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.2] sm:leading-[1.18] xl:leading-[1.16] 2xl:leading-[1.16] bg-linear-to-r from-[#cccccc] to-[#888888] bg-clip-text text-transparent">
+				<h1 className="font-bold text-4xl sm:text-5xl xl:text-6xl leading-[1.18] sm:leading-[1.16] xl:leading-[1.14] bg-linear-to-r from-[#cccccc] to-[#888888] bg-clip-text text-transparent">
 					The Best Resources for <br /> Design and Code <br /> in One Place
 				</h1>
 				<p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#7D7F78] pt-5 leading-relaxed text-pretty">

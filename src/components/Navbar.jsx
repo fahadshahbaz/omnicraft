@@ -5,10 +5,10 @@ import Link from "next/link";
 export default function Navbar() {
 	return (
 		<header className="w-full">
-			<nav className="flex justify-between items-center p-4 px-4 sm:px-16">
+			<nav className="flex justify-between items-center px-4 sm:px-16 py-5 sm:py-6">
 				<div className="flex items-center justify-center space-x-3">
-					<Image src={gray} alt="logo" className="size-7 sm:size-8 inline-block fill-[#9e9e1d]" />
-					<Link href="/" className="text-2xl sm:text-3xl font-bold cursor-pointer">
+					<Image src={gray} alt="logo" className="size-5 sm:size-6 inline-block fill-[#9e9e1d]" />
+					<Link href="/" className="text-xl sm:text-2xl font-bold cursor-pointer">
 						OmniCraft.
 					</Link>
 				</div>
@@ -31,7 +31,7 @@ export default function Navbar() {
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="Submit a resource"
-						className="flex justify-center items-center bg-[#131313] border border-[#2b2b2b] text-sm sm:text-base px-5 sm:px-7 py-[0.6rem] sm:py-[0.9rem] rounded-full font-semibold hover:bg-gray-300 hover:text-[#232323] duration-300 transition-all linear cursor-pointer"
+						className="flex justify-center items-center bg-[#131313] shadow-border text-sm px-5 py-2 rounded-full font-semibold hover:bg-gray-300 hover:text-[#232323] duration-300 transition-all linear cursor-pointer"
 					>
 						Submit
 					</a>
