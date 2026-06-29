@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
 	const showAnalytics = isProd && isVercel;
 
 	return (
-		<html lang="en" className={inter.variable}>
+		<html lang="en" className={`${inter.variable} antialiased`}>
 			<head></head>
 			<body>
 				<FavoritesProvider>
