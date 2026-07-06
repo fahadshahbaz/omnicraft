@@ -1,6 +1,7 @@
 import clientPromise from "@/utils/mongodb";
+import type { Resource } from "@/types";
 
-export async function GET() {
+export async function GET(): Promise<Response> {
 	try {
 		const client = await clientPromise;
 		if (!client) {
@@ -10,9 +11,13 @@ export async function GET() {
 		const resources = await db.collection("resources").find({}).sort({ _id: 1 }).toArray();
 
 		// Convert MongoDB _id to string for JSON serialization
-		const sanitized = resources.map(({ _id, ...rest }) => ({
+		const sanitized: Resource[] = resources.map(({ _id, ...rest }) => ({
 			id: _id.toString(),
-			...rest,
+			title: rest.title || "",
+			description: rest.description || "",
+			img: rest.img || "",
+			link: rest.link || "",
+			tags: rest.tags || [],
 		}));
 
 		return Response.json(sanitized);
