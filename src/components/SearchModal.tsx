@@ -35,7 +35,7 @@ export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, on
 	const morphTransition = shouldReduceMotion
 		? { duration: 0 }
 		: {
-				type: "spring",
+				type: "spring" as const,
 				stiffness: 400,
 				damping: 35,
 		  };
@@ -67,9 +67,9 @@ export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, on
 					>
 						<form onSubmit={handleSubmit} className="w-full flex items-center">
 							<motion.div
-								initial={shouldReduceMotion ? false : { scale: 0.9, opacity: 0 }}
+								initial={shouldReduceMotion ? undefined : { scale: 0.9, opacity: 0 }}
 								animate={{ scale: 1, opacity: 1 }}
-								exit={shouldReduceMotion ? false : { scale: 0.9, opacity: 0, transition: { duration: 0.15 } }}
+								exit={shouldReduceMotion ? undefined : { scale: 0.9, opacity: 0, transition: { duration: 0.15 } }}
 								transition={{
 									delay: 0.1,
 									ease: [0.22, 1, 0.36, 1],

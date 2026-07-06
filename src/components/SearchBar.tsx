@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 
 interface SearchBarProps {
+	searchQuery?: string;
 	setSearchQuery: (query: string) => void;
 	onSearchBarClick?: () => void;
 	isSearchModalOpen: boolean;
