@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar.jsx";
 import { useEffect, useState } from "react";
 
-const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick }) => {
+const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick, isSearchModalOpen }) => {
 	const [metaKey, setMetaKey] = useState(null);
 
 	useEffect(() => {
@@ -28,6 +28,7 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick })
 					setSearchQuery={setSearchQuery}
 					searchInputRef={searchInputRef}
 					onSearchBarClick={onSearchBarClick}
+					isSearchModalOpen={isSearchModalOpen}
 				/>
 			</div>
 			{metaKey && (

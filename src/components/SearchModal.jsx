@@ -1,10 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
 export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, onClose }) {
 	const [inputValue, setInputValue] = useState("");
+	const shouldReduceMotion = useReducedMotion();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -13,79 +14,81 @@ export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, on
 		onClose();
 	};
 
+	// Focus modal input right after it finishes animating
+	useEffect(() => {
+		if (isOpen) {
+			const timeout = setTimeout(() => {
+				searchInputRef.current?.focus();
+			}, 100);
+			return () => clearTimeout(timeout);
+		}
+	}, [isOpen, searchInputRef]);
+
+	const morphTransition = shouldReduceMotion
+		? { duration: 0 }
+		: {
+				type: "spring",
+				stiffness: 400,
+				damping: 35,
+		  };
+
 	return (
 		<AnimatePresence>
 			{isOpen && (
-				<motion.div
-					className="fixed inset-0 z-50 flex items-center justify-center"
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
-					transition={{ duration: 0.3 }}
-					onClick={onClose}
+				<div
+					className="fixed inset-0 z-50 flex items-start justify-center sm:pt-[15vh] p-0 sm:px-4"
 					role="dialog"
 					aria-modal="true"
 				>
 					{/* Backdrop */}
 					<motion.div
-						className="absolute inset-0 backdrop-blur-lg bg-zinc-900/65"
+						className="absolute inset-0 backdrop-blur-lg bg-black/40"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
-						transition={{
-							type: "tween",
-							ease: [0.22, 1, 0.36, 1],
-							duration: 0.42,
-						}}
+						transition={{ ease: "easeInOut", duration: 0.25 }}
+						onClick={onClose}
 					/>
 
-					{/* Modal Content */}
+					{/* Modal Content — shares layoutId with SearchBar for the morph */}
 					<motion.div
 						layoutId="search-bar"
-						className="relative w-full max-w-[420px] bg-[#2e2e2e] rounded-full px-6 py-3 shadow-xl flex items-center justify-center mb-64 shadow-border"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{
-							type: "tween",
-							ease: [0.22, 1, 0.36, 1],
-							duration: 0.36,
-						}}
+						className="relative w-full sm:max-w-[420px] h-[60px] bg-[#1A1A1A] rounded-none sm:rounded-full px-6 shadow-xl sm:shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_24px_48px_-12px_rgba(0,0,0,0.7)] flex items-center justify-center border-b border-zinc-800/80 sm:border-none"
+						transition={morphTransition}
 						onClick={(e) => e.stopPropagation()}
 					>
 						<form onSubmit={handleSubmit} className="w-full flex items-center">
 							<motion.div
-								initial={{ scale: 0.8, opacity: 0 }}
+								initial={shouldReduceMotion ? false : { scale: 0.9, opacity: 0 }}
 								animate={{ scale: 1, opacity: 1 }}
+								exit={shouldReduceMotion ? false : { scale: 0.9, opacity: 0, transition: { duration: 0.15 } }}
 								transition={{
-									delay: 0.12,
-									type: "tween",
+									delay: 0.1,
 									ease: [0.22, 1, 0.36, 1],
-									duration: 0.36,
+									duration: 0.28,
 								}}
 							>
-								<IoSearch className="size-6" />
+								<IoSearch className="size-6 text-white" />
 							</motion.div>
 							<motion.input
 								type="text"
 								placeholder="eg: inspiration"
 								value={inputValue}
 								onChange={(e) => setInputValue(e.target.value)}
-								className="w-full border-none bg-transparent px-4 py-2 placeholder:text-white/50 text-white outline-hidden focus:outline-1"
+								className="w-full border-none bg-transparent px-4 py-2 placeholder:text-white/50 text-white outline-hidden focus:outline-hidden"
 								ref={searchInputRef}
-								autoFocus
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
+								exit={{ opacity: 0, transition: { duration: 0.15, delay: 0 } }}
 								transition={{
-									delay: 0.18,
-									type: "tween",
+									delay: 0.14,
 									ease: [0.22, 1, 0.36, 1],
-									duration: 0.42,
+									duration: 0.28,
 								}}
 							/>
 						</form>
 					</motion.div>
-				</motion.div>
+				</div>
 			)}
 		</AnimatePresence>
 	);

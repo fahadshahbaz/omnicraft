@@ -109,6 +109,7 @@ export default function HomeClient({ initialResources }) {
 				searchQuery={searchQuery}
 				setSearchQuery={setSearchQuery}
 				onSearchBarClick={() => setIsSearchModalOpen(true)}
+				isSearchModalOpen={isSearchModalOpen}
 			/>
 			<div ref={cardContainerRef}>
 				<div className="w-11/12 max-w-screen-2xl mx-auto px-2 sm:px-9 mb-6">
