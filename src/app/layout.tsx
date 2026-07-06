@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,7 +11,7 @@ const inter = Inter({
 	variable: "--font-inter",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
 	title: "OmniCraft - Your Ultimate Resource Hub for Designs and UI Components",
 	description:
 		"OmniCraft provides an extensive library of resources, designs, icons, and UI components to inspire your next project.",
@@ -49,13 +50,14 @@ export const metadata = {
 			"Discover designs, UI libraries, icons, and more to craft visually appealing websites and applications.",
 		images: ["/twitter-card.png"],
 	},
-	// verification: {
-	//   // Add any verification tags if needed
-	// },
 	metadataBase: new URL("https://omnicraft.vercel.app"),
 };
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+	children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
 	const isProd = process.env.NODE_ENV === "production";
 	const isVercel = process.env.VERCEL === "1";
 	const showAnalytics = isProd && isVercel;
