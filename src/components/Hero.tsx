@@ -1,8 +1,17 @@
-import SearchBar from "./SearchBar.jsx";
+"use client";
+import SearchBar from "./SearchBar";
 import { useEffect, useState } from "react";
 
-const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick, isSearchModalOpen }) => {
-	const [metaKey, setMetaKey] = useState(null);
+interface HeroProps {
+	searchQuery: string;
+	setSearchQuery: (query: string) => void;
+	searchInputRef?: React.RefObject<HTMLInputElement | null>;
+	onSearchBarClick: () => void;
+	isSearchModalOpen: boolean;
+}
+
+const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick, isSearchModalOpen }: HeroProps) => {
+	const [metaKey, setMetaKey] = useState<string | null>(null);
 
 	useEffect(() => {
 		if (typeof navigator !== "undefined" && /Mac|iPhone|iPad|iPod/.test(navigator.userAgent)) {

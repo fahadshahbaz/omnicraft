@@ -1,7 +1,13 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 
-export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) {
+interface TagsFilterProps {
+	onFilterChange: (tags: string[]) => void;
+	onClearSearch?: () => void;
+	resetKey: string;
+}
+
+export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }: TagsFilterProps) {
 	const tags = [
 		"All",
 		"Favorites", // Show user's saved tools
@@ -17,8 +23,8 @@ export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) 
 		"Animation", // For animations
 	];
 
-	const [selectedTags, setSelectedTags] = useState(["All"]);
-	const tagsContainerRef = useRef(null);
+	const [selectedTags, setSelectedTags] = useState<string[]>(["All"]);
+	const tagsContainerRef = useRef<HTMLDivElement>(null);
 
 	const [scrollState, setScrollState] = useState({
 		canScrollLeft: false,
@@ -61,8 +67,8 @@ export default function TagsFilter({ onFilterChange, onClearSearch, resetKey }) 
 		};
 	}, []);
 
-	const handleTagClick = (tag) => {
-		let newSelectedTags;
+	const handleTagClick = (tag: string) => {
+		let newSelectedTags: string[];
 
 		if (tag === "All") {
 			newSelectedTags = ["All"];

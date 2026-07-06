@@ -3,11 +3,18 @@ import { useState, useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
-export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, onClose }) {
+interface SearchModalProps {
+	isOpen: boolean;
+	setSearchQuery: (query: string) => void;
+	searchInputRef: React.RefObject<HTMLInputElement | null>;
+	onClose: () => void;
+}
+
+export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, onClose }: SearchModalProps) {
 	const [inputValue, setInputValue] = useState("");
 	const shouldReduceMotion = useReducedMotion();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setSearchQuery(inputValue);
 		setInputValue("");

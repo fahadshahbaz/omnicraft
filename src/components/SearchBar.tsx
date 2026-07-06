@@ -2,10 +2,17 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 
-export default function SearchBar({ setSearchQuery, onSearchBarClick, isSearchModalOpen }) {
+interface SearchBarProps {
+	setSearchQuery: (query: string) => void;
+	onSearchBarClick?: () => void;
+	isSearchModalOpen: boolean;
+	searchInputRef?: React.RefObject<HTMLInputElement | null>;
+}
+
+export default function SearchBar({ setSearchQuery, onSearchBarClick, isSearchModalOpen }: SearchBarProps) {
 	const [inputValue, setInputValue] = useState("");
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setSearchQuery(inputValue);
 		setInputValue("");
@@ -22,7 +29,7 @@ export default function SearchBar({ setSearchQuery, onSearchBarClick, isSearchMo
 			{!isSearchModalOpen && (
 				<motion.div
 					layoutId="search-bar"
-					className="absolute inset-0 w-full flex items-center justify-center bg-[#0D0D0D] rounded-full shadow-border transition-[box-shadow] duration-150 cursor-pointer [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-border-hover"
+					className="absolute inset-0 w-full flex items-center justify-center bg-[#0D0D0D] rounded-full shadow-border transition-shadow duration-150 cursor-pointer [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-border-hover"
 					onClick={handleInputClick}
 					transition={{
 						type: "spring",

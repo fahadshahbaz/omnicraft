@@ -2,7 +2,13 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
-const items = [
+interface FAQItem {
+	id: string;
+	title: string;
+	content: string;
+}
+
+const items: FAQItem[] = [
 	{
 		id: "1",
 		title: "What resources are available?",
@@ -36,9 +42,9 @@ const items = [
 ];
 
 export default function FAQSection() {
-	const [openItem, setOpenItem] = useState("");
+	const [openItem, setOpenItem] = useState<string>("");
 
-	const toggleItem = (itemId) => {
+	const toggleItem = (itemId: string) => {
 		setOpenItem(openItem === itemId ? "" : itemId);
 	};
 
