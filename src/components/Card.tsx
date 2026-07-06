@@ -4,11 +4,19 @@ import Image from "next/image";
 import { addReferrer } from "@/utils/linkHelper";
 import { useFavorites } from "@/context/FavoritesContext";
 
-export default function Card({ img, title, description, link, priority = false }) {
+interface CardProps {
+	img: string;
+	title: string;
+	description: string;
+	link: string;
+	priority?: boolean;
+}
+
+export default function Card({ img, title, description, link, priority = false }: CardProps) {
 	const { toggleFavorite, isFavorite, isHydrated } = useFavorites();
 	const favorited = isFavorite(link);
 
-	const handleFavoriteClick = (e) => {
+	const handleFavoriteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
 		e.stopPropagation();
 		toggleFavorite(link);

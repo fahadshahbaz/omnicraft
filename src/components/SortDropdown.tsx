@@ -2,9 +2,14 @@
 import { useState, useRef, useEffect } from "react";
 import { HiChevronDown } from "react-icons/hi";
 
-export default function SortDropdown({ onSortChange, currentSort }) {
-	const [dropdownState, setDropdownState] = useState("closed"); // "closed" | "open" | "closing"
-	const dropdownRef = useRef(null);
+interface SortDropdownProps {
+	onSortChange: (sortId: string) => void;
+	currentSort: string;
+}
+
+export default function SortDropdown({ onSortChange, currentSort }: SortDropdownProps) {
+	const [dropdownState, setDropdownState] = useState<"closed" | "open" | "closing">("closed");
+	const dropdownRef = useRef<HTMLDivElement>(null);
 
 	const sortOptions = [
 		{ id: "default", label: "Default" },
@@ -16,8 +21,8 @@ export default function SortDropdown({ onSortChange, currentSort }) {
 
 	// Close dropdown when clicking outside
 	useEffect(() => {
-		const handleClickOutside = (event) => {
-			if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
 				if (dropdownState === "open") {
 					setDropdownState("closing");
 					setTimeout(() => {
@@ -36,7 +41,7 @@ export default function SortDropdown({ onSortChange, currentSort }) {
 		};
 	}, [dropdownState]);
 
-	const handleSortSelect = (sortId) => {
+	const handleSortSelect = (sortId: string) => {
 		onSortChange(sortId);
 		setDropdownState("closing");
 		setTimeout(() => {
