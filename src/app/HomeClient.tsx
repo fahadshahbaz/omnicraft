@@ -9,26 +9,30 @@ import TagsFilter from "@/components/TagsFilter";
 import FAQSection from "@/components/FaqSection";
 import SortDropdown from "@/components/SortDropdown";
 import { useFavorites } from "@/context/FavoritesContext";
+import type { Resource } from "@/types";
 
-// Define a constant for the initial number of cards to display
 const INITIAL_CARDS = 8;
 
-export default function HomeClient({ initialResources }) {
+interface HomeClientProps {
+	initialResources: Resource[];
+}
+
+export default function HomeClient({ initialResources }: HomeClientProps) {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [visibleCards, setVisibleCards] = useState(INITIAL_CARDS);
 	const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
-	const [selectedTags, setSelectedTags] = useState(["All"]);
+	const [selectedTags, setSelectedTags] = useState<string[]>(["All"]);
 	const [shouldScrollToCards, setShouldScrollToCards] = useState(false);
 	const [sortBy, setSortBy] = useState("default");
 	const allResources = initialResources;
 
-	const searchInputRef = useRef(null);
-	const cardContainerRef = useRef(null);
+	const searchInputRef = useRef<HTMLInputElement>(null);
+	const cardContainerRef = useRef<HTMLDivElement>(null);
 
 	const { favorites } = useFavorites();
 
 	// Handle keydown event for search modal
-	const handleKeyDown = useCallback((event) => {
+	const handleKeyDown = useCallback((event: KeyboardEvent) => {
 		if (event.key === "k" || event.key === "K") {
 			if (event.ctrlKey || event.metaKey) {
 				event.preventDefault();
@@ -97,7 +101,7 @@ export default function HomeClient({ initialResources }) {
 	// Close search modal
 	const closeSearchModal = () => setIsSearchModalOpen(false);
 
-	const handleSearchSubmit = (query) => {
+	const handleSearchSubmit = (query: string) => {
 		setSearchQuery(query);
 		setSelectedTags(["All"]);
 		setShouldScrollToCards(true);
@@ -110,6 +114,7 @@ export default function HomeClient({ initialResources }) {
 				setSearchQuery={setSearchQuery}
 				onSearchBarClick={() => setIsSearchModalOpen(true)}
 				isSearchModalOpen={isSearchModalOpen}
+				searchInputRef={searchInputRef}
 			/>
 			<div ref={cardContainerRef}>
 				<div className="w-11/12 max-w-screen-2xl mx-auto px-2 sm:px-9 mb-6">
