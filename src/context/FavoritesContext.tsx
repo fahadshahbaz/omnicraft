@@ -1,9 +1,12 @@
 "use client";
-import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
 
-// Storage Provider Interface - easily swap localStorage with MongoDB later
-// Future: Replace with mongoStorageProvider for authenticated users
-const localStorageProvider = {
+export interface StorageProvider {
+	getFavorites: () => string[];
+	setFavorites: (favorites: string[]) => void;
+}
+
+const localStorageProvider: StorageProvider = {
 	getFavorites: () => {
 		if (typeof window === "undefined") return [];
 		try {
@@ -12,16 +15,29 @@ const localStorageProvider = {
 			return [];
 		}
 	},
-	setFavorites: (favorites) => {
+	setFavorites: (favorites: string[]) => {
 		if (typeof window === "undefined") return;
 		localStorage.setItem("omnicraft_favorites", JSON.stringify(favorites));
 	},
 };
 
-const FavoritesContext = createContext(null);
+interface FavoritesContextType {
+	favorites: string[];
+	toggleFavorite: (resourceLink: string) => void;
+	isFavorite: (resourceLink: string) => boolean;
+	favoritesCount: number;
+	isHydrated: boolean;
+}
 
-export function FavoritesProvider({ children, storageProvider = localStorageProvider }) {
-	const [favorites, setFavorites] = useState([]);
+const FavoritesContext = createContext<FavoritesContextType | null>(null);
+
+interface FavoritesProviderProps {
+	children: ReactNode;
+	storageProvider?: StorageProvider;
+}
+
+export function FavoritesProvider({ children, storageProvider = localStorageProvider }: FavoritesProviderProps) {
+	const [favorites, setFavorites] = useState<string[]>([]);
 	const [isHydrated, setIsHydrated] = useState(false);
 
 	// Hydrate favorites from storage on mount
@@ -38,7 +54,7 @@ export function FavoritesProvider({ children, storageProvider = localStorageProv
 		}
 	}, [favorites, isHydrated, storageProvider]);
 
-	const toggleFavorite = useCallback((resourceLink) => {
+	const toggleFavorite = useCallback((resourceLink: string) => {
 		setFavorites((prev) => {
 			if (prev.includes(resourceLink)) {
 				return prev.filter((link) => link !== resourceLink);
@@ -48,13 +64,13 @@ export function FavoritesProvider({ children, storageProvider = localStorageProv
 	}, []);
 
 	const isFavorite = useCallback(
-		(resourceLink) => {
+		(resourceLink: string) => {
 			return favorites.includes(resourceLink);
 		},
 		[favorites],
 	);
 
-	const value = {
+	const value: FavoritesContextType = {
 		favorites,
 		toggleFavorite,
 		isFavorite,
