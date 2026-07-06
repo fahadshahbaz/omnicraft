@@ -40,12 +40,20 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick, i
 					isSearchModalOpen={isSearchModalOpen}
 				/>
 			</div>
-			{metaKey && (
-				<p className="text-xs sm:text-sm text-[#7F8080] pt-4">
-					Press <kbd className="px-2 py-1 text-[#c9c9c9] bg-[#2b2b2b] rounded">{metaKey}</kbd> + K
-					to open search
+			<div className="h-9 mt-4 flex items-center justify-center">
+				<p
+					className={`text-xs sm:text-sm text-[#7F8080] transition-all duration-500 ease-out transform ${
+						metaKey ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1.5"
+					}`}
+				>
+					{metaKey && (
+						<>
+							Press <kbd className="px-2 py-1 text-[#c9c9c9] bg-[#2b2b2b] rounded">{metaKey}</kbd> + K
+							to open search
+						</>
+					)}
 				</p>
-			)}
+			</div>
 		</div>
 	);
 };
