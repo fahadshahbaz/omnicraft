@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
 interface SearchModalProps {
 	isOpen: boolean;
+	searchQuery?: string;
 	setSearchQuery: (query: string) => void;
 	searchInputRef: React.RefObject<HTMLInputElement | null>;
 	onClose: () => void;
