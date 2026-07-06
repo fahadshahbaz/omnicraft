@@ -20,13 +20,6 @@ export default function Navbar() {
 						About
 					</Link>
 					<a
-						href="#faq"
-						aria-label="View FAQ"
-						className="hidden sm:block text-sm sm:text-base font-semibold py-2 hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
-					>
-						FAQ
-					</a>
-					<a
 						href="https://tally.so/r/b5jyk1"
 						target="_blank"
 						rel="noopener noreferrer"
