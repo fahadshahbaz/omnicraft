@@ -3,7 +3,7 @@ import { MongoClient } from "mongodb";
 const uri = process.env.MONGODB_URI;
 const options = {};
 
-let clientPromise;
+let clientPromise: Promise<MongoClient | null>;
 
 if (!uri) {
 	if (process.env.NODE_ENV === "development") {
@@ -12,11 +12,16 @@ if (!uri) {
 	// Return a promise that resolves to null during build time
 	clientPromise = Promise.resolve(null);
 } else if (process.env.NODE_ENV === "development") {
-	if (!global._mongoClientPromise) {
+	// In development mode, use a global variable so that the value
+	// is preserved across module reloads caused by HMR (Hot Module Replacement).
+	const globalWithMongo = global as typeof globalThis & {
+		_mongoClientPromise?: Promise<MongoClient>;
+	};
+	if (!globalWithMongo._mongoClientPromise) {
 		const client = new MongoClient(uri, options);
-		global._mongoClientPromise = client.connect();
+		globalWithMongo._mongoClientPromise = client.connect();
 	}
-	clientPromise = global._mongoClientPromise;
+	clientPromise = globalWithMongo._mongoClientPromise;
 } else {
 	const client = new MongoClient(uri, options);
 	clientPromise = client.connect();

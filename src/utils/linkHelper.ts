@@ -1,4 +1,4 @@
-export const addReferrer = (url, referrer = "omnicraft") => {
+export const addReferrer = (url: string, referrer: string = "omnicraft"): string => {
 	try {
 		const urlObj = new URL(url);
 		urlObj.searchParams.set("ref", referrer);
