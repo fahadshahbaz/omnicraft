@@ -1,6 +1,7 @@
 import gray from "@/assets/icons/gray.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa6";
 
 export default function Navbar() {
 	return (
@@ -15,10 +16,19 @@ export default function Navbar() {
 				<div className="flex items-center space-x-4 sm:space-x-6">
 					<Link
 						href="/about"
-						className="text-sm sm:text-base font-semibold py-2 hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
+						className="hidden sm:block text-sm sm:text-base font-semibold py-2 hover:text-gray-300 duration-300 transition-all linear cursor-pointer"
 					>
 						About
 					</Link>
+					<a
+						href="https://github.com/fahadshahbaz/OmniCraft"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="GitHub Repository"
+						className="text-neutral-400 hover:text-white transition-colors duration-300 cursor-pointer flex items-center justify-center"
+					>
+						<FaGithub className="size-5 sm:size-[22px]" />
+					</a>
 					<a
 						href="https://tally.so/r/b5jyk1"
 						target="_blank"

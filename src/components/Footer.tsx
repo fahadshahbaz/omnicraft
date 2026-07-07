@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import gray from "@/assets/icons/gray.svg";
 
 export default function Footer() {
@@ -41,6 +42,14 @@ export default function Footer() {
 							Quick Links
 						</h3>
 						<ul className="space-y-3">
+							<li>
+								<Link
+									href="/about"
+									className="text-[#7F8080] hover:text-white transition-colors text-base"
+								>
+									About
+								</Link>
+							</li>
 							<li>
 								<a
 									href="#faq"

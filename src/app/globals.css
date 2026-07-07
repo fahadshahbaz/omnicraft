@@ -11,11 +11,25 @@ html {
 ::selection {
 	background-color: rgba(255, 61, 0, 0.3);
 	color: white;
+	-webkit-text-fill-color: white;
 }
 
 ::-moz-selection {
 	background-color: rgba(255, 61, 0, 0.3);
 	color: white;
+	-webkit-text-fill-color: white;
+}
+
+h1 span::selection {
+	background-color: white;
+	color: #ff3d00;
+	-webkit-text-fill-color: #ff3d00;
+}
+
+h1 span::-moz-selection {
+	background-color: white;
+	color: #ff3d00;
+	-webkit-text-fill-color: #ff3d00;
 }
 
 body {
