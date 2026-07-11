@@ -38,19 +38,19 @@ export default function AboutPage() {
 			<div className="prose prose-invert max-w-none">
 				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4">Too Many Bookmarks</h2>
 				<p className="text-lg sm:text-xl text-neutral-300 leading-relaxed mb-8">
-					When I started web development, I bookmarked every good website I found. I saved links
-					for designs, images, and code snippets. Soon, I had hundreds of bookmarks.
+					When I started web development, I bookmarked every good website I found. I saved links for
+					designs, images, and code snippets. Soon, I had hundreds of bookmarks.
 				</p>
 
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
-					But my folders became a mess. When I actually needed a resource, I could not find it.
-					I forgot they even existed.
+					But my folders became a mess. When I actually needed a resource, I could not find it. I
+					forgot they even existed.
 				</p>
 
 				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">A Better Way</h2>
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
-					That is why I created OmniCraft. It is a neat, organized home for the best tools.
-					Instead of messy folders, everything is clean, visual, and easy to search.
+					That is why I created OmniCraft. It is a neat, organized home for the best tools. Instead
+					of messy folders, everything is clean, visual, and easy to search.
 				</p>
 
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
@@ -74,25 +74,31 @@ export default function AboutPage() {
 					You only get high-quality links that actually help you build projects.
 				</p>
 
-				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">Who Is This For?</h2>
+				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">
+					Who Is This For?
+				</h2>
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
 					This site is built for web developers, designers, and students. Whether you are building
 					your very first website or working on a professional project, you will find tools that
 					make your work easier and faster.
 				</p>
 
-				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">Taste in the AI Era</h2>
+				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">
+					Taste in the AI Era
+				</h2>
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
 					Today, AI can write code and build websites in seconds. But AI still lacks human taste and
 					style. OmniCraft helps you find clean designs and unique resources so you can make your
 					projects stand out.
 				</p>
 
-				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">Suggest a Resource</h2>
+				<h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 mt-10">
+					Suggest a Resource
+				</h2>
 				<p className="text-base sm:text-lg text-neutral-400 leading-relaxed mb-8">
 					I look at new websites and tools every day. I test them myself to make sure they are fast
-					and helpful. You can also suggest resources using the Submit button in the navbar. If
-					they are good, I will add them.
+					and helpful. You can also suggest resources using the Submit button in the navbar. If they
+					are good, I will add them.
 				</p>
 			</div>
 		</article>

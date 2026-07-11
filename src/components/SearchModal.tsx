@@ -11,7 +11,12 @@ interface SearchModalProps {
 	onClose: () => void;
 }
 
-export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, onClose }: SearchModalProps) {
+export default function SearchModal({
+	isOpen,
+	setSearchQuery,
+	searchInputRef,
+	onClose,
+}: SearchModalProps) {
 	const [inputValue, setInputValue] = useState("");
 	const shouldReduceMotion = useReducedMotion();
 
@@ -35,10 +40,10 @@ export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, on
 	const morphTransition = shouldReduceMotion
 		? { duration: 0 }
 		: {
-				type: "spring" as const,
-				stiffness: 400,
-				damping: 35,
-		  };
+			type: "spring" as const,
+			stiffness: 400,
+			damping: 35,
+		};
 
 	return (
 		<AnimatePresence>
@@ -69,7 +74,11 @@ export default function SearchModal({ isOpen, setSearchQuery, searchInputRef, on
 							<motion.div
 								initial={shouldReduceMotion ? undefined : { scale: 0.9, opacity: 0 }}
 								animate={{ scale: 1, opacity: 1 }}
-								exit={shouldReduceMotion ? undefined : { scale: 0.9, opacity: 0, transition: { duration: 0.15 } }}
+								exit={
+									shouldReduceMotion
+										? undefined
+										: { scale: 0.9, opacity: 0, transition: { duration: 0.15 } }
+								}
 								transition={{
 									delay: 0.1,
 									ease: [0.22, 1, 0.36, 1],

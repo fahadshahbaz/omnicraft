@@ -36,7 +36,10 @@ interface FavoritesProviderProps {
 	storageProvider?: StorageProvider;
 }
 
-export function FavoritesProvider({ children, storageProvider = localStorageProvider }: FavoritesProviderProps) {
+export function FavoritesProvider({
+	children,
+	storageProvider = localStorageProvider,
+}: FavoritesProviderProps) {
 	const [favorites, setFavorites] = useState<string[]>([]);
 	const [isHydrated, setIsHydrated] = useState(false);
 

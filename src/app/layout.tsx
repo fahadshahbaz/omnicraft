@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 		siteName: "OmniCraft",
 		images: [
 			{
-				url: "/omnicraft-og.png",
+				url: "/omnicraft-og.png?v=1",
 				width: 1200,
 				height: 630,
 			},
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 		title: "OmniCraft - Your Ultimate Resource Hub for Designs and UI Components",
 		description:
 			"Discover designs, UI libraries, icons, and more to craft visually appealing websites and applications.",
-		images: ["/omnicraft-og.png"],
+		images: ["/omnicraft-og.png?v=1"],
 	},
 	metadataBase: new URL("https://omnicraft.vercel.app"),
 };

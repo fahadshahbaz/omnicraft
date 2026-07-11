@@ -10,7 +10,11 @@ interface SearchBarProps {
 	searchInputRef?: React.RefObject<HTMLInputElement | null>;
 }
 
-export default function SearchBar({ setSearchQuery, onSearchBarClick, isSearchModalOpen }: SearchBarProps) {
+export default function SearchBar({
+	setSearchQuery,
+	onSearchBarClick,
+	isSearchModalOpen,
+}: SearchBarProps) {
 	const [inputValue, setInputValue] = useState("");
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

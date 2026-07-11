@@ -10,7 +10,13 @@ interface HeroProps {
 	isSearchModalOpen: boolean;
 }
 
-const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick, isSearchModalOpen }: HeroProps) => {
+const Hero = ({
+	searchQuery,
+	setSearchQuery,
+	searchInputRef,
+	onSearchBarClick,
+	isSearchModalOpen,
+}: HeroProps) => {
 	const [metaKey, setMetaKey] = useState<string | null>(null);
 
 	useEffect(() => {
@@ -48,8 +54,8 @@ const Hero = ({ searchQuery, setSearchQuery, searchInputRef, onSearchBarClick, i
 				>
 					{metaKey && (
 						<>
-							Press <kbd className="px-2 py-1 text-[#c9c9c9] bg-[#2b2b2b] rounded">{metaKey}</kbd> + K
-							to open search
+							Press <kbd className="px-2 py-1 text-[#c9c9c9] bg-[#2b2b2b] rounded">{metaKey}</kbd> +
+							K to open search
 						</>
 					)}
 				</p>
