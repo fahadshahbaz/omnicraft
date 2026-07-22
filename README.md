@@ -1,6 +1,10 @@
-# Omnicraft
+<div align="center">
+  <img src="public/gray.svg" alt="Omnicraft logo" width="80" height="80" />
+  <h1>Omnicraft</h1>
+  <p>A curated resource hub designed for web designers and developers to discover high-quality design assets, UI libraries, and tools.</p>
+</div>
 
-Omnicraft is a curated resource hub designed for web designers and developers. It provides a centralized collection of high-quality design assets, UI libraries, and development tools to streamline the creative process and accelerate project delivery.
+<br />
 
 ## Key Features
 
