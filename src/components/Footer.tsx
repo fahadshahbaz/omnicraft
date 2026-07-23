@@ -122,7 +122,7 @@ export default function Footer() {
 							© {currentYear} Omnicraft. All rights reserved.
 						</p>
 						<p className="text-[#7F8080] text-sm">
-							Made with ❤️ by{" "}
+							Built by{" "}
 							<a
 								target="_blank"
 								rel="noopener noreferrer"
