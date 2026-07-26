@@ -30,7 +30,7 @@ Omnicraft was developed to solve the challenge of resource fragmentation. By con
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/fahadshahbaz/OmniCraft.git
+   git clone https://github.com/fahadshahbaz/omnicraft.git
    ```
 
 2. **Install dependencies**:
