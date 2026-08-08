@@ -37,13 +37,30 @@ export default function SearchModal({
 		}
 	}, [isOpen, searchInputRef]);
 
+	// Handle Escape key to close modal
+	useEffect(() => {
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape" && isOpen) {
+				event.preventDefault();
+				onClose();
+			}
+		};
+
+		if (isOpen) {
+			document.addEventListener("keydown", handleKeyDown, { capture: true });
+			return () => {
+				document.removeEventListener("keydown", handleKeyDown, { capture: true });
+			};
+		}
+	}, [isOpen, onClose]);
+
 	const morphTransition = shouldReduceMotion
 		? { duration: 0 }
 		: {
-			type: "spring" as const,
-			stiffness: 400,
-			damping: 35,
-		};
+				type: "spring" as const,
+				stiffness: 400,
+				damping: 35,
+			};
 
 	return (
 		<AnimatePresence>

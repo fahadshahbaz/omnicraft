@@ -32,19 +32,23 @@ export default function HomeClient({ initialResources }: HomeClientProps) {
 	const { favorites } = useFavorites();
 
 	// Handle keydown event for search modal
-	const handleKeyDown = useCallback((event: KeyboardEvent) => {
-		if (event.key === "k" || event.key === "K") {
-			if (event.ctrlKey || event.metaKey) {
+	const handleKeyDown = useCallback(
+		(event: KeyboardEvent) => {
+			if ((event.key === "k" || event.key === "K") && (event.ctrlKey || event.metaKey)) {
 				event.preventDefault();
 				setIsSearchModalOpen(true);
+			} else if (event.key === "Escape" && isSearchModalOpen) {
+				event.preventDefault();
+				setIsSearchModalOpen(false);
 			}
-		}
-	}, []);
+		},
+		[isSearchModalOpen],
+	);
 
 	useEffect(() => {
 		document.addEventListener("keydown", handleKeyDown, { capture: true });
 		return () => {
-			document.removeEventListener("keydown", handleKeyDown);
+			document.removeEventListener("keydown", handleKeyDown, { capture: true });
 		};
 	}, [handleKeyDown]);
 
