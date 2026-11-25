@@ -1,53 +1,52 @@
 <div align="center">
-  <img src="public/gray.svg" alt="Omnicraft logo" width="80" height="80" />
-  <h1>Omnicraft</h1>
-  <p>A curated resource hub designed for web designers and developers to discover high-quality design assets, UI libraries, and tools.</p>
+  <img src="public/gray.svg" alt="Omnicraft" width="96" height="96" />
+
+  # Omnicraft
+
+  **A curated resource hub for web designers and developers**
+
+  Discover vetted UI libraries, icons, and developer tools built with Next.js and MongoDB.
 </div>
 
-<br />
+## Why Omnicraft?
+
+Design assets, icon packs, and UI libraries are scattered across hundreds of bookmarks. Omnicraft solves resource fragmentation by consolidating vetted web tools into a single searchable platform, giving you a reliable starting point for anything from minimal landing pages to full web applications.
 
 ## Key Features
 
-- **Curated Resources**: Access a handpicked selection of icons, UI libraries, and design elements.
-- **Structured Categories**: Navigate through organized collections to find specific tools quickly.
-- **Optimized User Interface**: A clean, intuitive interface designed for efficient browsing.
-- **Regular Updates**: The library is continuously expanded with modern, relevant resources.
+- **Curated Resources:** Handpicked selection of icons, UI libraries, and design elements.
+- **Structured Categories:** Organized collections and tags for fast filtering.
+- **Focused Interface:** Clean, distraction-free UI built for quick browsing.
+- **Saved Favorites:** Bookmark tools locally for quick access.
 
 ## Tech Stack
 
-- **Frontend**: Next.js
-- **Styling**: Tailwind CSS
-- **Database**: MongoDB Atlas
-- **Hosting**: Vercel
-- **Analytics**: Vercel Analytics
-
-## Project Purpose
-
-Omnicraft was developed to solve the challenge of resource fragmentation. By consolidating the best web resources into a single, searchable platform, it serves as a reliable starting point for any digital project, from minimal landing pages to complex web applications.
+- **Framework:** Next.js 16, React 19, TypeScript
+- **Styling & Motion:** Tailwind CSS v4, Motion
+- **Database:** MongoDB Atlas
+- **Hosting & Analytics:** Vercel, Vercel Analytics
+- **Tooling:** Oxlint, Oxfmt, pnpm
 
 ## Getting Started
 
-1. **Clone the repository**:
+1. Clone and install dependencies:
 
-   ```bash
+   ```sh
    git clone https://github.com/fahadshahbaz/omnicraft.git
-   ```
-
-2. **Install dependencies**:
-
-   ```bash
+   cd omnicraft
    pnpm install
    ```
 
-3. **Run the development server**:
-   ```bash
+2. Configure `.env.local` using `.env.example`, then start the dev server:
+
+   ```sh
    pnpm dev
    ```
 
-## Live Deployment
+## Live
 
-The live version of the application can be accessed at: [omnicraft.vercel.app](https://omnicraft.vercel.app)
+[omnicraft.vercel.app](https://omnicraft.vercel.app)
 
 ## License
 
-This project is licensed under the MIT License.
+MIT
